@@ -1,0 +1,73 @@
+﻿/* Brand colors correct as of 2018/08/28 */
+
+.brand-color--facebook {
+    background-color: #3B579D !important;
+}
+
+.brand-color--facebook-like {
+    background-color: #3B579D !important; /* #4080FF */
+}
+
+.brand-color--github {
+    background-color: #000000 !important;
+}
+
+.brand-color--google-plus {
+    background-color: #DB4437 !important;
+}
+
+.brand-color--kickstarter {
+    background-color: #034752 !important;
+}
+
+.brand-color--patreon {
+    background-color: #F96854 !important;
+}
+
+.brand-color--paypal {
+    background-color: #009CDE !important;
+}
+
+.brand-color--twitter {
+    background-color: #1DA1F3 !important;
+}
+
+.brand-color--youtube {
+    background-color: #FF0000 !important;
+}
+
+.brand-color-text--facebook {
+    color: #3B579D !important;
+}
+
+.brand-color-text--facebook-like {
+    color: #3B579D !important; /* #4080FF */
+}
+
+.brand-color-text--github {
+    color: #000000 !important;
+}
+
+.brand-color-text--google-plus {
+    color: #DB4437 !important;
+}
+
+.brand-color-text--kickstarter {
+    color: #034752 !important;
+}
+
+.brand-color-text--patreon {
+    color: #F96854 !important;
+}
+
+.brand-color-text--paypal {
+    color: #009CDE !important;
+}
+
+.brand-color-text--twitter {
+    color: #1DA1F3 !important;
+}
+
+.brand-color-text--youtube {
+    color: #FF0000 !important;
+}
