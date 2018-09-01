@@ -30,6 +30,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Scripts (Reference) -->
     <script defer type="text/javascript" src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <!-- Scripts (Custom) -->
+    <script defer type="text/javascript" src="script/site.js"></script>
 </head>
 <body>
     <div class="mdl-layout mdl-layout--fixed-header mdl-js-layout">
@@ -39,13 +41,13 @@
                 <span class="mdl-layout__title des-typography--h5 site-typography--title-font">BellyOak</span>
                 <div class="mdl-layout-spacer"></div>
                 <nav class="mdl-navigation mdl-layout--large-screen-only des-opacity--active">
-                    <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast" href="index.html">Home</a>
-                    <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast" href="#about">About</a>
-                    <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast" href="#support-us">Support us</a>
+                    <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast site-button" href="index.html">Home</a>
+                    <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast site-button" href="#about">About</a>
+                    <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast site-button" href="#support-us">Support us</a>
                 </nav>
             </div>
         </header>
-        <div class="mdl-layout__drawer des-color--background">
+        <div class="mdl-layout__drawer des-color--surface">
             <span class="mdl-layout__title des-color-text--background-contrast des-typography--h5 site-typography--title-font">BellyOak</span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link des-color-text--background-contrast des-opacity--active des-typography--body-1" href="index.html">Home</a>
@@ -63,7 +65,7 @@
                 </div>
             </div>
             <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop mdl-card mdl-shadow--2dp">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop mdl-card mdl-shadow--2dp site-card">
                     <!-- 4c-phone, 6c-tablet, 9c-desktop -->
                     <div class="mdl-card__title">
                         <span class="des-color-text--surface-contrast des-typography--h6">Search or filter results</span>
@@ -93,7 +95,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="mdl-cell mdl-cell--hide-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-card">
+                <div class="mdl-cell mdl-cell--hide-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-card site-card">
                     <!-- hide-phone, 2c-tablet, 3c-desktop -->
                     <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline">
                         <span>Advertisement</span>
@@ -107,18 +109,24 @@
                             <span class="des-color-text--background-contrast des-typography--h6">1 to 5 of 25</span>
                         </span>
                         <span class="mdl-list__item-secondary-content">
-                            <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect des-button--outlined" href="" disabled>Previous</button>
+                            <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="previous-button--top" disabled>
+                                <i class="material-icons">arrow_back</i>
+                            </button>
+                            <span class="mdl-tooltip" for="previous-button--top">Previous page</span>
                         </span>
                         <span class="mdl-list__item-secondary-content">
-                            <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect des-button--outlined" href="">Next</button>
+                            <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="next-button--top">
+                                <i class="material-icons">arrow_forward</i>
+                            </button>
+                            <span class="mdl-tooltip" for="next-button--top">Next page</span>
                         </span>
                     </div>
                     <div class="mdl-cell mdl-cell--12-col mdl-typography--text-center">
                         <span class="mdl-spinner mdl-js-spinner is-active"></span>
                     </div>
-                    <div class="mdl-cell mdl-cell--12-col mdl-grid mdl-list__item mdl-grid--no-spacing mdl-shadow--2dp des-color--surface">
+                    <div class="mdl-cell mdl-cell--12-col mdl-grid mdl-list__item mdl-grid--no-spacing mdl-shadow--2dp des-color--surface site-card">
                         <!-- contained: 4c-phone, 8c-tablet, 12c-desktop -->
-                        <header class="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-color--primary" style="background: bottom url(image/image-1.jpg);"></header> <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
+                        <header class="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-color--primary site-card__media" style="background-image: url(image/image-1.jpg);"></header> <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
                         <div class="mdl-cell mdl-cell--3-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop">
                             <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
                             <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
@@ -134,14 +142,14 @@
                                 </span>
                             </div>
                             <div class="mdl-card__actions mdl-card--border">
-                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="recipes/recipe-1.html">Eat me</a>
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect site-button" href="recipes/recipe-1.html">Eat me</a>
                             </div>
                         </div>
                     </div>
                     <div class="mdl-cell mdl-cell--12-col mdl-grid"></div>
-                    <div class="mdl-cell mdl-cell--12-col mdl-grid mdl-list__item mdl-grid--no-spacing mdl-shadow--2dp des-color--surface">
+                    <div class="mdl-cell mdl-cell--12-col mdl-grid mdl-list__item mdl-grid--no-spacing mdl-shadow--2dp des-color--surface site-card">
                         <!-- contained: 4c-phone, 8c-tablet, 12c-desktop -->
-                        <header class="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-color--primary" style="background: bottom url(image/image-2.jpg);"></header> <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
+                        <header class="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-color--primary site-card__media" style="background-image: url(image/image-2.jpg);"></header> <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
                         <div class="mdl-cell mdl-cell--3-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop">
                             <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
                             <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
@@ -154,14 +162,14 @@
                                 </span>
                             </div>
                             <div class="mdl-card__actions mdl-card--border">
-                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="recipes/recipe-2.html">Eat me</a>
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect site-button" href="recipes/recipe-2.html">Eat me</a>
                             </div>
                         </div>
                     </div>
                     <div class="mdl-cell mdl-cell--12-col mdl-grid"></div>
-                    <div class="mdl-cell mdl-cell--12-col mdl-grid mdl-list__item mdl-grid--no-spacing mdl-shadow--2dp des-color--surface">
+                    <div class="mdl-cell mdl-cell--12-col mdl-grid mdl-list__item mdl-grid--no-spacing mdl-shadow--2dp des-color--surface site-card">
                         <!-- contained: 4c-phone, 8c-tablet, 12c-desktop -->
-                        <header class="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-color--primary" style="background: bottom url(image/image-3.jpg);"></header> <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
+                        <header class="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-color--primary site-card__media" style="background-image: url(image/image-3.jpg);"></header> <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
                         <div class="mdl-cell mdl-cell--3-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop">
                             <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
                             <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
@@ -177,21 +185,21 @@
                                 </span>
                             </div>
                             <div class="mdl-card__actions mdl-card--border">
-                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="recipes/recipe-3.html">Eat me</a>
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect site-button" href="recipes/recipe-3.html">Eat me</a>
                             </div>
                         </div>
                     </div>
                     <div class="mdl-cell mdl-cell--12-col mdl-grid"></div>
-                    <div class="mdl-cell mdl-cell--12-col mdl-card">
+                    <div class="mdl-cell mdl-cell--12-col mdl-card site-card">
                         <!-- 4c-phone, 8c-tablet, 12c-desktop -->
                         <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline">
                             <span>Advertisement</span>
                         </div>
                     </div>
                     <div class="mdl-cell mdl-cell--12-col mdl-grid"></div>
-                    <div class="mdl-cell mdl-cell--12-col mdl-grid mdl-list__item mdl-grid--no-spacing mdl-shadow--2dp des-color--surface">
+                    <div class="mdl-cell mdl-cell--12-col mdl-grid mdl-list__item mdl-grid--no-spacing mdl-shadow--2dp des-color--surface site-card">
                         <!-- contained: 4c-phone, 8c-tablet, 12c-desktop -->
-                        <header class="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-color--primary" style="background: bottom url(image/image-4.jpg);"></header> <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
+                        <header class="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-color--primary site-card__media" style="background-image: url(image/image-4.jpg);"></header> <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
                         <div class="mdl-cell mdl-cell--3-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop">
                             <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
                             <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
@@ -207,14 +215,14 @@
                                 </span>
                             </div>
                             <div class="mdl-card__actions mdl-card--border">
-                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="recipes/recipe-4.html">Eat me</a>
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect site-button" href="recipes/recipe-4.html">Eat me</a>
                             </div>
                         </div>
                     </div>
                     <div class="mdl-cell mdl-cell--12-col mdl-grid"></div>
-                    <div class="mdl-cell mdl-cell--12-col mdl-grid mdl-list__item mdl-grid--no-spacing mdl-shadow--2dp des-color--surface">
+                    <div class="mdl-cell mdl-cell--12-col mdl-grid mdl-list__item mdl-grid--no-spacing mdl-shadow--2dp des-color--surface site-card">
                         <!-- contained: 4c-phone, 8c-tablet, 12c-desktop -->
-                        <header class="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-color--primary" style="background: bottom url(image/image-5.jpg);"></header> <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
+                        <header class="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-color--primary site-card__media" style="background-image: url(image/image-5.jpg);"></header> <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
                         <div class="mdl-cell mdl-cell--3-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop">
                             <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
                             <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
@@ -230,7 +238,7 @@
                                 </span>
                             </div>
                             <div class="mdl-card__actions mdl-card--border">
-                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="recipes/recipe-5.html">Eat me</a>
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect site-button" href="recipes/recipe-5.html">Eat me</a>
                             </div>
                         </div>
                     </div>
@@ -240,14 +248,20 @@
                             <span class="des-color-text--background-contrast des-typography--h6">1 to 5 of 25</span>
                         </span>
                         <span class="mdl-list__item-secondary-content">
-                            <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect des-button--outlined" href="" disabled>Previous</button>
+                            <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="previous-button--bottom" disabled>
+                                <i class="material-icons">arrow_back</i>
+                            </button>
+                            <span class="mdl-tooltip" for="previous-button--bottom">Previous page</span>
                         </span>
                         <span class="mdl-list__item-secondary-content">
-                            <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect des-button--outlined" href="">Next</button>
+                            <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="next-button--bottom">
+                                <i class="material-icons">arrow_forward</i>
+                            </button>
+                            <span class="mdl-tooltip" for="next-button--bottom">Next page</span>
                         </span>
                     </div>
                 </div>
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-card">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-card site-card">
                     <!-- 4c-phone, 2c-tablet, 3c-desktop -->
                     <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline">
                         <span>Advertisement</span>
@@ -255,7 +269,7 @@
                 </div>
             </div>
             <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp" id="about">
+                <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp site-card" id="about">
                     <!-- 4c-phone, 4c-tablet, 4c-desktop -->
                     <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
                         <span>About</span>
@@ -264,10 +278,10 @@
                         <span>Supporting text.</span>
                     </div>
                     <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Learn more</a>
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect site-button">Learn more</a>
                     </div>
                 </div>
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--5-col-desktop mdl-card mdl-shadow--2dp" id="support-us">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--5-col-desktop mdl-card mdl-shadow--2dp site-card" id="support-us">
                     <!-- 4c-phone, 4c-tablet, 5c-desktop -->
                     <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
                         <span>Support us (plz)</span>
@@ -286,7 +300,7 @@
                                 </span>
                             </span>
                             <span class="mdl-list__item-secondary-content">
-                                <a class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect brand-color--kickstarter" href="#">Fund</a>
+                                <a class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect site-button brand-color--kickstarter" href="#">Fund</a>
                             </span>
                         </div>
                         <div class="mdl-list__item">
@@ -299,7 +313,7 @@
                                 </span>
                             </span>
                             <span class="mdl-list__item-secondary-content">
-                                <a class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect brand-color--patreon" href="#">Support</a>
+                                <a class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect site-button brand-color--patreon" href="#">Support</a>
                             </span>
                         </div>
                         <div class="mdl-list__item">
@@ -312,12 +326,12 @@
                                 </span>
                             </span>
                             <span class="mdl-list__item-secondary-content">
-                                <a class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect brand-color--paypal" href="#">Donate</a>
+                                <a class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect site-button brand-color--paypal" href="#">Donate</a>
                             </span>
                         </div>
                     </div>
                 </div>
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--3-col-desktop mdl-card">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--3-col-desktop mdl-card site-card">
                     <!-- 4c-phone, 8c-tablet, 3c-desktop -->
                     <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline">
                         <span>Advertisement</span>

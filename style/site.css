@@ -1,6 +1,19 @@
-﻿.site-card__media--recipe {
+﻿.site-button {
+    border-radius: 4px !important;
+}
+
+.site-card {
+    border-radius: 8px !important;
+    min-height: 160px;
+}
+
+.site-card__media {
+    background-position: center center;
+    background-size: cover;
+}
+
+.site-card__media--recipe {
     height: 128px;
-    background-size: cover !important;
 }
 
 .site-typography--title-font {
