@@ -70,15 +70,6 @@
                             <i class="material-icons">print</i>
                         </button>
                         <span class="mdl-tooltip" for="print-button">Print page</span>
-                        <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-js-button mdl-js-ripple-effect site-js-print-button">
-                            <i class="material-icons">print</i>
-                        </button>
-                        <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="window.print();">
-                            <i class="material-icons">print</i>
-                        </button>
-                        <a class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-js-button mdl-js-ripple-effect" href="javascript: window.print();">
-                            <i class="material-icons">print</i>
-                        </a>
                     </span>
                 </div>
                 <div class="mdl-cell mdl-cell--hide-phone mdl-cell--hide-tablet mdl-cell--2-col-desktop"></div> <!-- hide-phone, hide-tablet, 2c-desktop -->
@@ -116,7 +107,7 @@
                             </div>
                             <div class="mdl-list__item">
                                 <span class="mdl-textfield mdl-textfield--floating-label mdl-js-textfield des-layout--span">
-                                    <input class="mdl-textfield__input des-color-text--surface-contrast des-typography--h6" id="servings-field" type="text" maxlength="9" pattern="[0]*[1-9]+[0-9]*" value="6" required />
+                                    <input class="mdl-textfield__input des-color-text--surface-contrast des-typography--h6" id="servings-field" type="text" maxlength="9" pattern="[0]*[1-9]+[0-9]*" value="4" required />
                                     <label class="mdl-textfield__label des-typography--subtitle-1" for="servings-field">* Servings (positive integer)...</label>
                                     <span class="mdl-textfield__error des-typography--subtitle-2">You clearly have many friends</span>
                                 </span>
@@ -130,15 +121,15 @@
                                     </tr>
                                 </thead>
                                 <tbody class="des-color-text--surface-contrast des-typography--body-1">
-                                    <tr>
+                                    <tr class="site-js-ingredient" id="ingredient-1a" data-ingredient-specific-quantity="0.5">
                                         <td class="mdl-data-table__cell--non-numeric">Eggs</td>
-                                        <td>3</td>
+                                        <td id="ingredient-1a__quantity">2</td>
                                         <td class="mdl-data-table__cell--non-numeric">-</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="site-js-ingredient" id="ingredient-2a" data-ingredient-specific-quantity="0.0625" data-ingredient-basic-unit="l">
                                         <td class="mdl-data-table__cell--non-numeric">Milk</td>
-                                        <td>250</td>
-                                        <td class="mdl-data-table__cell--non-numeric">ml</td>
+                                        <td id="ingredient-2a__quantity">250</td>
+                                        <td class="mdl-data-table__cell--non-numeric" id="ingredient-2a__unit">ml</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -151,15 +142,15 @@
                                     </tr>
                                 </thead>
                                 <tbody class="des-color-text--surface-contrast des-typography--body-1">
-                                    <tr>
+                                    <tr class="site-js-ingredient" id="ingredient-1b" data-ingredient-specific-quantity="0.5">
                                         <td class="mdl-data-table__cell--non-numeric">Eggs</td>
-                                        <td>3</td>
+                                        <td id="ingredient-1b__quantity">2</td>
                                         <td class="mdl-data-table__cell--non-numeric">-</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="site-js-ingredient" id="ingredient-2b" data-ingredient-specific-quantity="0.0625" data-ingredient-basic-unit="l">
                                         <td class="mdl-data-table__cell--non-numeric">Milk</td>
-                                        <td>250</td>
-                                        <td class="mdl-data-table__cell--non-numeric">ml</td>
+                                        <td id="ingredient-2b__quantity">250</td>
+                                        <td class="mdl-data-table__cell--non-numeric" id="ingredient-2b__unit">ml</td>
                                     </tr>
                                 </tbody>
                             </table>
