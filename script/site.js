@@ -1,25 +1,38 @@
 (function () {
-    // Assign document print capability to print buttons
+    // Private variables - elements
     var PrintButtons = document.getElementsByClassName("site-js-print-button");
+    var ServingsField = document.getElementById("servings-field");
+    var Snackbar = document.querySelector(".mdl-js-snackbar");
+
+    // Private variables - values
+    var RegExp_PositiveInteger = /^([0]*[1-9]+[0-9]*)$/;
+    var Servings = ServingsField.value;
+
+    // Event listener - print button
     for (var i in PrintButtons) {
+        // Open document print dialog on click
         if (PrintButtons[i].addEventListener) {
             PrintButtons[i].addEventListener("click", function () { window.print(); }, false);
         } else if (PrintButtons[i].attachEvent) {
+            // Support for Internet Explorer
             PrintButtons[i].attachEvent("onclick", function () { window.print(); });
         }
     }
 
-    // Calculate ingredient quantities on change of servings field value
-    var ServingsField = document.getElementById("servings-field");
+    // Event listener - servings field
+    // Calculate ingredient quantities on value change
     if (ServingsField.addEventListener) {
         ServingsField.addEventListener("change", function () { Quantities_Calculate(); }, false);
     } else if (ServingsField.attachEvent) {
+        // Support for Internet Explorer
         ServingsField.attachEvent("onchange", function () { Quantities_Calculate(); });
     }
+
+    // Calculate ingredient quantities based on value of servings field
     Quantities_Calculate = function () {
-        var Servings = ServingsField.value;
-        var RegExp_PositiveInteger = /^([0]*[1-9]+[0-9]*)$/;
-        if (RegExp_PositiveInteger.test(Servings)) {
+        if (RegExp_PositiveInteger.test(ServingsField.value)) {
+            Servings = ServingsField.value;
+            Snackbar.MaterialSnackbar.showSnackbar({ message: "Showing quantities for " + Servings + " servings." });
             var Ingredients = document.getElementsByClassName("site-js-ingredient");
             for (var i in Ingredients) {
                 var IngredientId = Ingredients[i].getAttribute("id");
@@ -56,7 +69,7 @@
                 }
             }
         } else {
-            //alert("no " + Servings);
+            Snackbar.MaterialSnackbar.showSnackbar({ message: "Invalid input.\u00A0\u00A0Showing quantities for " + Servings + " servings." });
         }
     };
 })();
