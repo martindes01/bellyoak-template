@@ -14,6 +14,7 @@
     <!-- Styles (Reference) -->
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:500">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <!-- Styles (Custom) -->
@@ -40,7 +41,7 @@
             <div class="mdl-layout__header-row">
                 <span class="mdl-layout__title des-typography--h5 site-typography--title-font">BellyOak</span>
                 <div class="mdl-layout-spacer"></div>
-                <nav class="mdl-navigation mdl-layout--large-screen-only des-opacity--active">
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
                     <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast site-button" href="index.html">Home</a>
                     <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast site-button" href="#about">About</a>
                     <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast site-button" href="#support-us">Support us</a>
@@ -50,9 +51,9 @@
         <div class="mdl-layout__drawer des-color--surface">
             <span class="mdl-layout__title des-color-text--background-contrast des-typography--h5 site-typography--title-font">BellyOak</span>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link des-color-text--background-contrast des-opacity--active des-typography--body-1" href="index.html">Home</a>
-                <a class="mdl-navigation__link des-color-text--background-contrast des-opacity--active des-typography--body-1" href="#about">About</a>
-                <a class="mdl-navigation__link des-color-text--background-contrast des-opacity--active des-typography--body-1" href="#support-us">Support us</a>
+                <a class="mdl-navigation__link des-color-text--background-contrast des-opacity--opaque des-typography--body-1 site-typography--body-font" href="index.html">Home</a>
+                <a class="mdl-navigation__link des-color-text--background-contrast des-opacity--opaque des-typography--body-1 site-typography--body-font" href="#about">About</a>
+                <a class="mdl-navigation__link des-color-text--background-contrast des-opacity--opaque des-typography--body-1 site-typography--body-font" href="#support-us">Support us</a>
             </nav>
         </div>
         <main class="mdl-layout__content des-color--background">
@@ -60,7 +61,7 @@
                 <div class="mdl-cell mdl-cell--9-col mdl-list__item des-grid__header">
                     <!-- 4c-phone, 8c-tablet, 9c-desktop -->
                     <span class="mdl-list__item-primary-content mdl-typography--text-center">
-                        <span class="des-color-text--background-contrast des-layout--span des-opacity--active des-typography--h4">Time to find some top&#8209;notch&nbsp;nosh</span>
+                        <span class="des-color-text--background-contrast des-layout--span des-opacity--active des-typography--h4 site-typography--title-font">Time to find some top&#8209;notch&nbsp;nosh</span>
                     </span>
                 </div>
             </div>
@@ -68,18 +69,18 @@
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop mdl-card mdl-shadow--2dp site-card">
                     <!-- 4c-phone, 6c-tablet, 9c-desktop -->
                     <div class="mdl-card__title">
-                        <span class="des-color-text--surface-contrast des-typography--h6">Search or filter results</span>
+                        <span class="des-color-text--surface-contrast des-typography--h5 site-typography--title-font">Search or filter results</span>
                     </div>
                     <div class="mdl-list__item">
                         <span class="mdl-list__item-primary-content mdl-textfield mdl-textfield--floating-label mdl-js-textfield">
-                            <input class="mdl-textfield__input des-color-text--surface-contrast des-typography--h6" id="search-field" autofocus />
-                            <label class="mdl-textfield__label des-typography--subtitle-1" for="search-field">Search by ingredients, keywords etc.</label>
+                            <input class="mdl-textfield__input des-color-text--surface-contrast des-typography--body-1 site-typography--body-font" id="search-field" autofocus />
+                            <label class="mdl-textfield__label des-typography--subtitle-1 site-typography--body-font" for="search-field">Search by ingredients, keywords etc.</label>
                         </span>
                         <span class="mdl-list__item-secondary-content">
                             <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-button--raised mdl-js-button mdl-js-ripple-effect" id="search-button">
                                 <i class="material-icons">search</i>
                             </button>
-                            <span class="mdl-tooltip" for="search-button">Search</span>
+                            <span class="mdl-tooltip des-typography--body-2 site-tooltip site-typography--body-font" for="search-button">Search</span>
                         </span>
                     </div>
                     <div class="mdl-card__supporting-text des-typography--body-2">
@@ -97,7 +98,7 @@
                 </div>
                 <div class="mdl-cell mdl-cell--hide-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-card site-card">
                     <!-- hide-phone, 2c-tablet, 3c-desktop -->
-                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline">
+                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
                         <span>Advertisement</span>
                     </div>
                 </div>
@@ -106,19 +107,19 @@
                     <div class="mdl-cell mdl-cell--12-col mdl-list__item mdl-list__item des-grid__header">
                         <!-- contained: 4c-phone, 8c-tablet, 12c-desktop -->
                         <span class="mdl-list__item-primary-content">
-                            <span class="des-color-text--background-contrast des-typography--h6">1 to 5 of 25</span>
+                            <span class="des-color-text--background-contrast des-typography--subtitle-1 site-typography--title-font">1 to 5 of 25</span>
                         </span>
                         <span class="mdl-list__item-secondary-content">
                             <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="previous-button--top" disabled>
                                 <i class="material-icons">arrow_back</i>
                             </button>
-                            <span class="mdl-tooltip" for="previous-button--top">Previous page</span>
+                            <span class="mdl-tooltip des-typography--body-2 site-tooltip site-typography--body-font" for="previous-button--top">Previous page</span>
                         </span>
                         <span class="mdl-list__item-secondary-content">
                             <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="next-button--top">
                                 <i class="material-icons">arrow_forward</i>
                             </button>
-                            <span class="mdl-tooltip" for="next-button--top">Next page</span>
+                            <span class="mdl-tooltip des-typography--body-2 site-tooltip site-typography--body-font" for="next-button--top">Next page</span>
                         </span>
                     </div>
                     <div class="mdl-cell mdl-cell--12-col mdl-typography--text-center">
@@ -129,7 +130,7 @@
                         <header class="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-color--primary site-card__media" style="background-image: url(image/image-1.jpg);"></header> <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
                         <div class="mdl-cell mdl-cell--3-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop">
                             <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
-                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
+                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
                                 <span>Recipe name</span>
                             </div>
                             <div class="mdl-card__supporting-text des-typography--body-2">
@@ -152,7 +153,7 @@
                         <header class="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-color--primary site-card__media" style="background-image: url(image/image-2.jpg);"></header> <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
                         <div class="mdl-cell mdl-cell--3-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop">
                             <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
-                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
+                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
                                 <span>Recipe name</span>
                             </div>
                             <div class="mdl-card__supporting-text des-typography--body-2">
@@ -172,7 +173,7 @@
                         <header class="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-color--primary site-card__media" style="background-image: url(image/image-3.jpg);"></header> <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
                         <div class="mdl-cell mdl-cell--3-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop">
                             <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
-                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
+                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
                                 <span>Recipe name</span>
                             </div>
                             <div class="mdl-card__supporting-text des-typography--body-2">
@@ -192,7 +193,7 @@
                     <div class="mdl-cell mdl-cell--12-col mdl-grid"></div>
                     <div class="mdl-cell mdl-cell--12-col mdl-card site-card">
                         <!-- 4c-phone, 8c-tablet, 12c-desktop -->
-                        <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline">
+                        <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
                             <span>Advertisement</span>
                         </div>
                     </div>
@@ -202,7 +203,7 @@
                         <header class="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-color--primary site-card__media" style="background-image: url(image/image-4.jpg);"></header> <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
                         <div class="mdl-cell mdl-cell--3-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop">
                             <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
-                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
+                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
                                 <span>Recipe name</span>
                             </div>
                             <div class="mdl-card__supporting-text des-typography--body-2">
@@ -225,7 +226,7 @@
                         <header class="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-color--primary site-card__media" style="background-image: url(image/image-5.jpg);"></header> <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
                         <div class="mdl-cell mdl-cell--3-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop">
                             <!-- contained(2): 3c-phone, 6c-tablet, 9c-desktop -->
-                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
+                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
                                 <span>Recipe name</span>
                             </div>
                             <div class="mdl-card__supporting-text des-typography--body-2">
@@ -245,25 +246,25 @@
                     <div class="mdl-cell mdl-cell--12-col mdl-list__item mdl-list__item des-grid__header">
                         <!-- contained: 4c-phone, 8c-tablet, 12c-desktop -->
                         <span class="mdl-list__item-primary-content">
-                            <span class="des-color-text--background-contrast des-typography--h6">1 to 5 of 25</span>
+                            <span class="des-color-text--background-contrast des-typography--subtitle-1 site-typography--title-font">1 to 5 of 25</span>
                         </span>
                         <span class="mdl-list__item-secondary-content">
                             <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="previous-button--bottom" disabled>
                                 <i class="material-icons">arrow_back</i>
                             </button>
-                            <span class="mdl-tooltip" for="previous-button--bottom">Previous page</span>
+                            <span class="mdl-tooltip des-typography--body-2 site-tooltip site-typography--body-font" for="previous-button--bottom">Previous page</span>
                         </span>
                         <span class="mdl-list__item-secondary-content">
                             <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="next-button--bottom">
                                 <i class="material-icons">arrow_forward</i>
                             </button>
-                            <span class="mdl-tooltip" for="next-button--bottom">Next page</span>
+                            <span class="mdl-tooltip des-typography--body-2 site-tooltip site-typography--body-font" for="next-button--bottom">Next page</span>
                         </span>
                     </div>
                 </div>
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-card site-card">
                     <!-- 4c-phone, 2c-tablet, 3c-desktop -->
-                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline">
+                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
                         <span>Advertisement</span>
                     </div>
                 </div>
@@ -271,10 +272,10 @@
             <div class="mdl-grid">
                 <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp site-card" id="about">
                     <!-- 4c-phone, 4c-tablet, 4c-desktop -->
-                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
+                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
                         <span>About</span>
                     </div>
-                    <div class="mdl-card__supporting-text mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1">
+                    <div class="mdl-card__supporting-text mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">
                         <span>Supporting text.</span>
                     </div>
                     <div class="mdl-card__actions mdl-card--border">
@@ -283,10 +284,10 @@
                 </div>
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--5-col-desktop mdl-card mdl-shadow--2dp site-card" id="support-us">
                     <!-- 4c-phone, 4c-tablet, 5c-desktop -->
-                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
+                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
                         <span>Support us (plz)</span>
                     </div>
-                    <div class="mdl-card__supporting-text mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1">
+                    <div class="mdl-card__supporting-text mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">
                         <span>Supporting text.</span>
                     </div>
                     <div class="mdl-card__actions mdl-card--border">
@@ -294,9 +295,9 @@
                             <span class="mdl-list__item-primary-content">
                                 <span class="mdl-list__item-icon mdl-cell--hide-tablet fab fa-kickstarter-k brand-color-text--kickstarter"></span>
                                 <span class="des-color-text--surface-contrast">
-                                    <span class="des-typography--h6">Kickstarter</span>
+                                    <span class="des-typography--h6 site-typography--title-font">Kickstarter</span>
                                     <br />
-                                    <span class="des-typography--body-2">Fund us on Kickstarter</span>
+                                    <span class="des-typography--body-2 site-typography--body-font">Fund us on Kickstarter</span>
                                 </span>
                             </span>
                             <span class="mdl-list__item-secondary-content">
@@ -307,9 +308,9 @@
                             <span class="mdl-list__item-primary-content">
                                 <span class="mdl-list__item-icon mdl-cell--hide-tablet fab fa-patreon brand-color-text--patreon"></span>
                                 <span class="des-color-text--surface-contrast">
-                                    <span class="des-typography--h6">Patreon</span>
+                                    <span class="des-typography--h6 site-typography--title-font">Patreon</span>
                                     <br />
-                                    <span class="des-typography--body-2">Become a patron</span>
+                                    <span class="des-typography--body-2 site-typography--body-font">Become a patron</span>
                                 </span>
                             </span>
                             <span class="mdl-list__item-secondary-content">
@@ -320,9 +321,9 @@
                             <span class="mdl-list__item-primary-content">
                                 <span class="mdl-list__item-icon mdl-cell--hide-tablet fab fa-paypal brand-color-text--paypal"></span>
                                 <span class="des-color-text--surface-contrast">
-                                    <span class="des-typography--h6">PayPal</span>
+                                    <span class="des-typography--h6 site-typography--title-font">PayPal</span>
                                     <br />
-                                    <span class="des-typography--body-2">Donate through Paypal</span>
+                                    <span class="des-typography--body-2 site-typography--body-font">Donate through Paypal</span>
                                 </span>
                             </span>
                             <span class="mdl-list__item-secondary-content">
@@ -333,7 +334,7 @@
                 </div>
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--3-col-desktop mdl-card site-card">
                     <!-- 4c-phone, 8c-tablet, 3c-desktop -->
-                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline">
+                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
                         <span>Advertisement</span>
                     </div>
                 </div>
@@ -342,8 +343,8 @@
                 <div class="mdl-mega-footer__bottom-section">
                     <div class="mdl-logo mdl-color-text--accent-contrast des-typography--h6 site-typography--title-font">BellyOak</div>
                     <ul class="mdl-mega-footer__link-list des-opacity--active">
-                        <li><a class="des-typography--subtitle-1" href="#about">About</a></li>
-                        <li><a class="des-typography--subtitle-1" href="#support-us">Support us</a></li>
+                        <li><a class="des-typography--subtitle-1 site-typography--body-font" href="#about">About</a></li>
+                        <li><a class="des-typography--subtitle-1 site-typography--body-font" href="#support-us">Support us</a></li>
                     </ul>
                 </div>
             </footer>

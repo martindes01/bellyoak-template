@@ -14,6 +14,7 @@
     <!-- Styles (Reference) -->
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:500">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <!-- Styles (Custom) -->
@@ -40,7 +41,7 @@
             <div class="mdl-layout__header-row">
                 <span class="mdl-layout__title des-typography--h5 site-typography--title-font">BellyOak</span>
                 <div class="mdl-layout-spacer"></div>
-                <nav class="mdl-navigation mdl-layout--large-screen-only des-opacity--active">
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
                     <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast site-button" href="index.html">Home</a>
                     <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast site-button" href="recipes.html">Recipes</a>
                     <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast site-button" href="index.html#about">About</a>
@@ -51,15 +52,15 @@
         <div class="mdl-layout__drawer des-color--surface">
             <span class="mdl-layout__title des-color-text--background-contrast des-typography--h5 site-typography--title-font">BellyOak</span>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link des-color-text--background-contrast des-opacity--active des-typography--body-1" href="index.html">Home</a>
-                <a class="mdl-navigation__link des-color-text--background-contrast des-opacity--active des-typography--body-1" href="recipes.html">Recipes</a>
-                <a class="mdl-navigation__link des-color-text--background-contrast des-opacity--active des-typography--body-1" href="index.html#about">About</a>
-                <a class="mdl-navigation__link des-color-text--background-contrast des-opacity--active des-typography--body-1" href="index.html#support-us">Support us</a>
+                <a class="mdl-navigation__link des-color-text--background-contrast des-opacity--opaque des-typography--body-1 site-typography--body-font" href="index.html">Home</a>
+                <a class="mdl-navigation__link des-color-text--background-contrast des-opacity--opaque des-typography--body-1 site-typography--body-font" href="recipes.html">Recipes</a>
+                <a class="mdl-navigation__link des-color-text--background-contrast des-opacity--opaque des-typography--body-1 site-typography--body-font" href="index.html#about">About</a>
+                <a class="mdl-navigation__link des-color-text--background-contrast des-opacity--opaque des-typography--body-1 site-typography--body-font" href="index.html#support-us">Support us</a>
             </nav>
         </div>
         <main class="mdl-layout__content des-color--background">
-            <div aria-live="assertive" aria-atomic="true" aria-relevant="text" class="mdl-snackbar mdl-js-snackbar">
-                <div class="mdl-snackbar__text des-typography--body-1"></div>
+            <div aria-live="assertive" aria-atomic="true" aria-relevant="text" class="mdl-snackbar mdl-js-snackbar site-snackbar">
+                <div class="mdl-snackbar__text des-typography--body-1 site-typography--body-font"></div>
                 <button class="mdl-snackbar__action" type="button"></button>
             </div>
             <div class="mdl-grid">
@@ -67,19 +68,19 @@
                 <div class="mdl-cell mdl-cell--8-col mdl-list__item des-grid__header">
                     <!-- 4c-phone, 8c-tablet, 8c-desktop -->
                     <span class="mdl-list__item-primary-content">
-                        <span class="des-color-text--background-contrast des-typography--h6">What's cookin'?</span>
+                        <span class="des-color-text--background-contrast des-typography--h5 site-typography--title-font">What's cookin'?</span>
                     </span>
                     <span class="mdl-list__item-secondary-content">
                         <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-js-button mdl-js-ripple-effect site-js-print-button" id="print-button">
                             <i class="material-icons">print</i>
                         </button>
-                        <span class="mdl-tooltip" for="print-button">Print page</span>
+                        <span class="mdl-tooltip des-typography--body-2 site-tooltip site-typography--body-font" for="print-button">Print page</span>
                     </span>
                 </div>
                 <div class="mdl-cell mdl-cell--hide-phone mdl-cell--hide-tablet mdl-cell--2-col-desktop"></div> <!-- hide-phone, hide-tablet, 2c-desktop -->
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--2-col-desktop mdl-card site-card">
                     <!-- 4c-phone, 8c-tablet, 2c-desktop -->
-                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline">
+                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
                         <span>Advertisement</span>
                     </div>
                 </div>
@@ -87,7 +88,7 @@
                     <!-- 4c-phone, 8c-tablet, 8c-desktop -->
                     <div class="mdl-cell mdl-cell--12-col">
                         <!-- contained: 4c-phone, 8c-tablet, 12c-desktop -->
-                        <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
+                        <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
                             <span>Recipe name</span>
                         </div>
                         <div class="mdl-color--primary site-card__media site-card__media--recipe" style="background-image: url(image/image-1.jpg);"></div>
@@ -106,22 +107,22 @@
                         <!-- contained: 4c-phone, 8c-tablet, 12c-desktop -->
                         <div class="mdl-cell mdl-cell--12-col">
                             <!-- contained(2): 4c-phone, 8c-tablet, 12c-desktop -->
-                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
+                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h6 site-typography--title-font">
                                 <span>Ingredients<span class="mdl-cell--hide-phone"> - tick 'em off</span></span>
                             </div>
                             <div class="mdl-list__item mdl-list__item--three-line">
                                 <span class="mdl-list__item-primary-content">
                                     <span class="mdl-textfield mdl-textfield--floating-label mdl-js-textfield des-layout--span">
-                                        <input class="mdl-textfield__input des-color-text--surface-contrast des-typography--h6" id="servings-field" type="text" maxlength="9" pattern="[0]*[1-9]+[0-9]*" value="4" required />
-                                        <label class="mdl-textfield__label des-typography--subtitle-1" for="servings-field">* Servings (positive integer)...</label>
-                                        <span class="mdl-textfield__error des-typography--subtitle-2">You clearly have many friends</span>
+                                        <input class="mdl-textfield__input des-color-text--surface-contrast des-typography--body-1 site-typography--body-font" id="servings-field" type="text" maxlength="9" pattern="[0]*[1-9]+[0-9]*" value="4" required />
+                                        <label class="mdl-textfield__label des-typography--subtitle-1 site-typography--body-font" for="servings-field">* Servings (positive integer)...</label>
+                                        <span class="mdl-textfield__error des-typography--subtitle-2 site-typography--body-font">You clearly have many friends</span>
                                     </span>
                                 </span>
                             </div>
-                            <div class="mdl-card__supporting-text des-color-text--surface-contrast des-typography--body-2">
+                            <div class="mdl-card__supporting-text des-color-text--surface-contrast des-typography--caption site-typography--body-font">
                                 <span>*&nbsp; Note that recipes may behave unpredictably for large numbers of servings.</span>
                             </div>
-                            <table class="mdl-cell--hide-tablet mdl-cell--hide-desktop mdl-card__actions mdl-data-table mdl-js-data-table">
+                            <table class="mdl-cell--hide-tablet mdl-cell--hide-desktop mdl-card__actions mdl-data-table mdl-js-data-table site-typography--body-font-cascade">
                                 <thead>
                                     <tr>
                                         <th class="mdl-data-table__cell--non-numeric des-color-text--surface-contrast des-opacity--active des-typography--subtitle-1">Ingredient</th>
@@ -129,7 +130,7 @@
                                         <th class="mdl-data-table__cell--non-numeric des-color-text--surface-contrast des-opacity--active des-typography--subtitle-1">Unit</th>
                                     </tr>
                                 </thead>
-                                <tbody class="des-color-text--surface-contrast des-typography--body-1">
+                                <tbody class="des-typography--body-1">
                                     <tr class="site-js-ingredient" id="ingredient-1a" data-ingredient-specific-quantity="0.5">
                                         <td class="mdl-data-table__cell--non-numeric">Eggs</td>
                                         <td id="ingredient-1a__quantity">2</td>
@@ -142,7 +143,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <table class="mdl-cell--hide-phone mdl-card__actions mdl-data-table mdl-data-table--selectable mdl-js-data-table">
+                            <table class="mdl-cell--hide-phone mdl-card__actions mdl-data-table mdl-data-table--selectable mdl-js-data-table site-typography--body-font-cascade">
                                 <thead>
                                     <tr>
                                         <th class="mdl-data-table__cell--non-numeric des-color-text--surface-contrast des-opacity--active des-typography--subtitle-1">Ingredient</th>
@@ -150,7 +151,7 @@
                                         <th class="mdl-data-table__cell--non-numeric des-color-text--surface-contrast des-opacity--active des-typography--subtitle-1">Unit</th>
                                     </tr>
                                 </thead>
-                                <tbody class="des-color-text--surface-contrast des-typography--body-1">
+                                <tbody class="des-typography--body-1">
                                     <tr class="site-js-ingredient" id="ingredient-1b" data-ingredient-specific-quantity="0.5">
                                         <td class="mdl-data-table__cell--non-numeric">Eggs</td>
                                         <td id="ingredient-1b__quantity">2</td>
@@ -166,25 +167,25 @@
                         </div>
                         <div class="mdl-cell mdl-cell--12-col">
                             <!-- contained(2): 4c-phone, 8c-tablet, 12c-desktop -->
-                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
+                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h6 site-typography--title-font">
                                 <span>Method, youthod</span>
                             </div>
                             <div class="mdl-list__item">
                                 <span class="mdl-list__item-primary-content">
-                                    <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5">1</span>
-                                    <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1">What to do.</span>
+                                    <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5 site-typography--title-font">1</span>
+                                    <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">What to do.</span>
                                 </span>
                             </div>
                             <div class="mdl-list__item mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1">
                                 <span class="mdl-list__item-primary-content">
-                                    <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5">2</span>
-                                    <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1">What to do.</span>
+                                    <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5 site-typography--title-font">2</span>
+                                    <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">What to do.</span>
                                 </span>
                             </div>
                             <div class="mdl-list__item mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1">
                                 <span class="mdl-list__item-primary-content">
-                                    <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5">3</span>
-                                    <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1">What to do.</span>
+                                    <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5 site-typography--title-font">3</span>
+                                    <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">What to do.</span>
                                 </span>
                             </div>
                         </div>
@@ -193,7 +194,7 @@
                         <!-- contained: 4c-phone, 8c-tablet, 12c-desktop -->
                         <hr />
                         <div class="mdl-card__title mdl-typography--text-center">
-                            <span class="des-color-text--surface-contrast des-layout--span des-typography--h3">Bon app&eacute;tit!</span>
+                            <span class="des-color-text--surface-contrast des-layout--span des-typography--h3 site-typography--title-font">Bon app&eacute;tit!</span>
                         </div>
                     </div>
                     <div class="mdl-cell mdl-cell--12-col mdl-card__actions">
@@ -203,7 +204,7 @@
                 </div>
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--2-col-desktop mdl-card site-card">
                     <!-- 4c-phone, 8c-tablet, 2c-desktop -->
-                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline">
+                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
                         <span>Advertisement</span>
                     </div>
                 </div>
@@ -211,10 +212,10 @@
             <div class="mdl-grid">
                 <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp site-card" id="about">
                     <!-- 4c-phone, 4c-tablet, 4c-desktop -->
-                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
+                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
                         <span>About</span>
                     </div>
-                    <div class="mdl-card__supporting-text mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1">
+                    <div class="mdl-card__supporting-text mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">
                         <span>Supporting text.</span>
                     </div>
                     <div class="mdl-card__actions mdl-card--border">
@@ -223,10 +224,10 @@
                 </div>
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--5-col-desktop mdl-card mdl-shadow--2dp site-card" id="support-us">
                     <!-- 4c-phone, 4c-tablet, 5c-desktop -->
-                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5">
+                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
                         <span>Support us (plz)</span>
                     </div>
-                    <div class="mdl-card__supporting-text mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1">
+                    <div class="mdl-card__supporting-text mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">
                         <span>Supporting text.</span>
                     </div>
                     <div class="mdl-card__actions mdl-card--border">
@@ -234,9 +235,9 @@
                             <span class="mdl-list__item-primary-content">
                                 <span class="mdl-list__item-icon mdl-cell--hide-tablet fab fa-kickstarter-k brand-color-text--kickstarter"></span>
                                 <span class="des-color-text--surface-contrast">
-                                    <span class="des-typography--h6">Kickstarter</span>
+                                    <span class="des-typography--h6 site-typography--title-font">Kickstarter</span>
                                     <br />
-                                    <span class="des-typography--body-2">Fund us on Kickstarter</span>
+                                    <span class="des-typography--body-2 site-typography--body-font">Fund us on Kickstarter</span>
                                 </span>
                             </span>
                             <span class="mdl-list__item-secondary-content">
@@ -247,9 +248,9 @@
                             <span class="mdl-list__item-primary-content">
                                 <span class="mdl-list__item-icon mdl-cell--hide-tablet fab fa-patreon brand-color-text--patreon"></span>
                                 <span class="des-color-text--surface-contrast">
-                                    <span class="des-typography--h6">Patreon</span>
+                                    <span class="des-typography--h6 site-typography--title-font">Patreon</span>
                                     <br />
-                                    <span class="des-typography--body-2">Become a patron</span>
+                                    <span class="des-typography--body-2 site-typography--body-font">Become a patron</span>
                                 </span>
                             </span>
                             <span class="mdl-list__item-secondary-content">
@@ -260,9 +261,9 @@
                             <span class="mdl-list__item-primary-content">
                                 <span class="mdl-list__item-icon mdl-cell--hide-tablet fab fa-paypal brand-color-text--paypal"></span>
                                 <span class="des-color-text--surface-contrast">
-                                    <span class="des-typography--h6">PayPal</span>
+                                    <span class="des-typography--h6 site-typography--title-font">PayPal</span>
                                     <br />
-                                    <span class="des-typography--body-2">Donate through Paypal</span>
+                                    <span class="des-typography--body-2 site-typography--body-font">Donate through Paypal</span>
                                 </span>
                             </span>
                             <span class="mdl-list__item-secondary-content">
@@ -273,7 +274,7 @@
                 </div>
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--3-col-desktop mdl-card site-card">
                     <!-- 4c-phone, 8c-tablet, 3c-desktop -->
-                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline">
+                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
                         <span>Advertisement</span>
                     </div>
                 </div>
@@ -282,8 +283,8 @@
                 <div class="mdl-mega-footer__bottom-section">
                     <div class="mdl-logo mdl-color-text--accent-contrast des-typography--h6 site-typography--title-font">BellyOak</div>
                     <ul class="mdl-mega-footer__link-list des-opacity--active">
-                        <li><a class="des-typography--subtitle-1" href="index.html#about">About</a></li>
-                        <li><a class="des-typography--subtitle-1" href="index.html#support-us">Support us</a></li>
+                        <li><a class="des-typography--subtitle-1 site-typography--body-font" href="index.html#about">About</a></li>
+                        <li><a class="des-typography--subtitle-1 site-typography--body-font" href="index.html#support-us">Support us</a></li>
                     </ul>
                 </div>
             </footer>
