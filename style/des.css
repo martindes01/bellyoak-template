@@ -1,62 +1,55 @@
-﻿:root {
-    --color--background: #F1F3F4;
-    --color--background-contrast: #000000;
-    --color--error: #D50000;
-    --color--error-contrast: #FFFFFF;
-    --color--surface: #FFFFFF;
-    --color--surface-contrast: #000000;
-}
+﻿/* Designed to work alongside Material Design Lite v1.3.0 */
 
 .des-button--outlined {
     border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .des-color--background {
-    background-color: var(--color--background) !important;
+    background-color: #F1F3F4 !important;
 }
 
 .des-color--background-contrast {
-    background-color: var(--color--background-contrast) !important;
+    background-color: #000000 !important;
 }
 
 .des-color--error {
-    background-color: var(--color--error) !important;
+    background-color: #D50000 !important;
 }
 
 .des-color--error-contrast {
-    background-color: var(--color--error-contrast) !important;
+    background-color: #FFFFFF !important;
 }
 
 .des-color--surface {
-    background-color: var(--color--surface) !important;
+    background-color: #FFFFFF !important;
 }
 
 .des-color--surface-contrast {
-    background-color: var(--color--surface-contrast) !important;
+    background-color: #000000 !important;
 }
 
 .des-color-text--background {
-    color: var(--color--background) !important;
+    color: #F1F3F4 !important;
 }
 
 .des-color-text--background-contrast {
-    color: var(--color--background-contrast) !important;
+    color: #000000 !important;
 }
 
 .des-color-text--error {
-    color: var(--color--error) !important;
+    color: #D50000 !important;
 }
 
 .des-color-text--error-contrast {
-    color: var(--color--error-contrast) !important;
+    color: #FFFFFF !important;
 }
 
 .des-color-text--surface {
-    color: var(--color--surface) !important;
+    color: #FFFFFF !important;
 }
 
 .des-color-text--surface-contrast {
-    color: var(--color--surface-contrast) !important;
+    color: #000000 !important;
 }
 
 .des-grid__header {

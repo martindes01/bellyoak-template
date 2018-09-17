@@ -1,45 +1,49 @@
+// Designed to work alongside Material Design Lite v1.3.0
+
 (function () {
-    // Private variables - elements
-    var PrintButtons = document.getElementsByClassName("site-js-print-button");
+    // Private variables - Elements
+    var PrintButtons = document.querySelectorAll(".site-js-print-button");
     var ServingsField = document.getElementById("servings-field");
     var Snackbar = document.querySelector(".mdl-js-snackbar");
 
-    // Private variables - values
-    var RegExp_PositiveInteger = /^([0]*[1-9]+[0-9]*)$/;
+    // Private variables - Values
+    var RegExp_PositiveInteger = /^(\s*[0]*[1-9]+[0-9]*\s*)$/;
     var Servings = ServingsField.value;
 
-    // Event listener - print button
-    for (var i in PrintButtons) {
-        // Open document print dialog on click
-        if (PrintButtons[i].addEventListener) {
-            PrintButtons[i].addEventListener("click", function () { window.print(); }, false);
-        } else if (PrintButtons[i].attachEvent) {
-            // Support for Internet Explorer
-            PrintButtons[i].attachEvent("onclick", function () { window.print(); });
-        }
-    }
-
-    // Event listener - servings field
-    // Calculate ingredient quantities on value change
-    if (ServingsField.addEventListener) {
+    // Event listeners
+    if (document.addEventListener) {
+        // Print button - Open document print dialog on click
+        PrintButtons.forEach(function (PrintButton) {
+            PrintButton.addEventListener("click", function () { window.print(); }, false);
+        });
+        // Servings field - Calculate ingredient quantities on value change
         ServingsField.addEventListener("change", function () { Quantities_Calculate(); }, false);
-    } else if (ServingsField.attachEvent) {
+    } else if (document.attachEvent) {
         // Support for Internet Explorer
+        // Print button - Open document print dialog on click
+        PrintButtons.forEach(function (PrintButton) {
+            PrintButton.attachEvent("onclick", function () { window.print(); });
+        });
+        // Servings field - Calculate ingredient quantities on value change
         ServingsField.attachEvent("onchange", function () { Quantities_Calculate(); });
     }
 
     // Calculate ingredient quantities based on value of servings field
     Quantities_Calculate = function () {
+        // Test whether value is positive integer
         if (RegExp_PositiveInteger.test(ServingsField.value)) {
-            Servings = ServingsField.value;
+            Servings = ServingsField.value.trim();
             Snackbar.MaterialSnackbar.showSnackbar({ message: "Showing quantities for " + Servings + " servings." });
             var Ingredients = document.getElementsByClassName("site-js-ingredient");
             for (var i in Ingredients) {
                 var IngredientId = Ingredients[i].getAttribute("id");
+                // Test whether ingredient quantity is dynamic
                 if (Ingredients[i].hasAttribute("data-ingredient-specific-quantity")) {
                     var IngredientQuantity = Ingredients[i].getAttribute("data-ingredient-specific-quantity") * Servings;
+                    // Test whether ingredient has a non-trivial unit
                     if (Ingredients[i].hasAttribute("data-ingredient-basic-unit")) {
                         var IngredientBasicUnit = Ingredients[i].getAttribute("data-ingredient-basic-unit");
+                        // Initialise unit prefix as necessary
                         if (IngredientQuantity < 1) {
                             IngredientQuantity *= 1000;
                             var IngredientUnitPrefix = 'm';
@@ -59,12 +63,25 @@
                         } else if (IngredientQuantity < 1000000) {
                             IngredientQuantity /= 1000;
                             var IngredientUnitPrefix = 'k';
+                        } else if (IngredientQuantity < 1000000000) {
+                            IngredientQuantity /= 1000000;
+                            var IngredientUnitPrefix = 'M';
+                        } else if (IngredientQuantity < 1000000000000) {
+                            IngredientQuantity /= 1000000000;
+                            var IngredientUnitPrefix = 'G';
+                        } else if (IngredientQuantity < 1000000000000000) {
+                            IngredientQuantity /= 1000000000000;
+                            var IngredientUnitPrefix = 'T';
                         } else {
                             var IngredientUnitPrefix = '';
                         }
                         IngredientQuantity = IngredientQuantity.toPrecision(3);
+                        // Display updated ingredient unit
                         document.getElementById(IngredientId + "__unit").innerHTML = IngredientUnitPrefix + IngredientBasicUnit;
+                    } else if (IngredientQuantity.toString().length > 6) {
+                        IngredientQuantity = IngredientQuantity.toPrecision(3);
                     }
+                    // Display updated ingredient quantity
                     document.getElementById(IngredientId + "__quantity").innerHTML = IngredientQuantity;
                 }
             }

@@ -1,4 +1,6 @@
-﻿.site-button {
+﻿/* Designed to work alongside Material Design Lite v1.3.0 */
+
+.site-button {
     border-radius: 4px !important;
 }
 
@@ -16,8 +18,8 @@
     height: 128px;
 }
 
-.site-snackbar {
-    border-radius: 8px !important;
+.site-chip__action--icon-only {
+    cursor: inherit;
 }
 
 .site-tooltip {
@@ -38,4 +40,10 @@
 
 .site-typography--title-font-cascade * {
     font-family: "Quicksand", Arial, Helvetica, sans-serif !important;
+}
+
+@media (min-width: 480px) {
+    .site-snackbar {
+        border-radius: 8px !important;
+    }
 }
