@@ -4,6 +4,10 @@
     border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
+.des-chip__action--icon-only {
+    cursor: inherit;
+}
+
 .des-color--background {
     background-color: #F1F3F4 !important;
 }

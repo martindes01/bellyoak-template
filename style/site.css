@@ -18,10 +18,6 @@
     height: 128px;
 }
 
-.site-chip__action--icon-only {
-    cursor: inherit;
-}
-
 .site-tooltip {
     border-radius: 4px !important;
 }

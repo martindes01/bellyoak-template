@@ -34,15 +34,14 @@
         if (RegExp_PositiveInteger.test(ServingsField.value)) {
             Servings = ServingsField.value.trim();
             Snackbar.MaterialSnackbar.showSnackbar({ message: "Showing quantities for " + Servings + " servings." });
-            var Ingredients = document.getElementsByClassName("site-js-ingredient");
-            for (var i in Ingredients) {
-                var IngredientId = Ingredients[i].getAttribute("id");
+            var Ingredients = document.querySelectorAll(".site-js-ingredient");
+            Ingredients.forEach(function (Ingredient) {
                 // Test whether ingredient quantity is dynamic
-                if (Ingredients[i].hasAttribute("data-ingredient-specific-quantity")) {
-                    var IngredientQuantity = Ingredients[i].getAttribute("data-ingredient-specific-quantity") * Servings;
+                if (Ingredient.hasAttribute("data-ingredient-specific-quantity")) {
+                    var IngredientQuantity = Ingredient.getAttribute("data-ingredient-specific-quantity") * Servings;
                     // Test whether ingredient has a non-trivial unit
-                    if (Ingredients[i].hasAttribute("data-ingredient-basic-unit")) {
-                        var IngredientBasicUnit = Ingredients[i].getAttribute("data-ingredient-basic-unit");
+                    if (Ingredient.hasAttribute("data-ingredient-basic-unit")) {
+                        var IngredientBasicUnit = Ingredient.getAttribute("data-ingredient-basic-unit");
                         // Initialise unit prefix as necessary
                         if (IngredientQuantity < 1) {
                             IngredientQuantity *= 1000;
@@ -77,14 +76,14 @@
                         }
                         IngredientQuantity = IngredientQuantity.toPrecision(3);
                         // Display updated ingredient unit
-                        document.getElementById(IngredientId + "__unit").innerHTML = IngredientUnitPrefix + IngredientBasicUnit;
+                        Ingredient.querySelector(".site-js-ingredient__unit").innerHTML = IngredientUnitPrefix + IngredientBasicUnit;
                     } else if (IngredientQuantity.toString().length > 6) {
                         IngredientQuantity = IngredientQuantity.toPrecision(3);
                     }
                     // Display updated ingredient quantity
-                    document.getElementById(IngredientId + "__quantity").innerHTML = IngredientQuantity;
+                    Ingredient.querySelector(".site-js-ingredient__quantity").innerHTML = IngredientQuantity;
                 }
-            }
+            });
         } else {
             Snackbar.MaterialSnackbar.showSnackbar({ message: "Invalid input.\u00A0\u00A0Showing quantities for " + Servings + " servings." });
         }
