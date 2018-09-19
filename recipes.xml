@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<recipes>
+  <recipe>
+    <public_Authors>martindes01</public_Authors>
+    <public_Date>20180829</public_Date>
+    <public_Title>Recipe 1</public_Title>
+    <public_UrlImage>image/recipe-1.jpg</public_UrlImage>
+    <public_UrlPage>recipe/recipe-1.html</public_UrlPage>
+    <public_UrlSearchResult>search-result/recipe-1.txt</public_UrlSearchResult>
+    <filter_Alt>veggie,vegetarian,egg,dairy</filter_Alt>
+    <filter_Celebration></filter_Celebration>
+    <filter_Tags>Vegetarian</filter_Tags>
+    <recipe_Ingredients>eggs,milk</recipe_Ingredients>
+    <recipe_TimeCooking></recipe_TimeCooking>
+    <recipe_TimePrep></recipe_TimePrep>
+    <recipe_TimeTotal>30</recipe_TimeTotal>
+  </recipe>
+  <recipe>
+    <public_Authors></public_Authors>
+    <public_Date></public_Date>
+    <public_Title>Recipe 2</public_Title>
+    <public_UrlImage>image/recipe-2.jpg</public_UrlImage>
+    <public_UrlPage>recipe/recipe-2.html</public_UrlPage>
+    <public_UrlSearchResult>search-result/recipe-2.txt</public_UrlSearchResult>
+    <filter_Alt>veggie,vegetarian</filter_Alt>
+    <filter_Celebration></filter_Celebration>
+    <filter_Tags>Vegetarian</filter_Tags>
+    <recipe_Ingredients></recipe_Ingredients>
+    <recipe_TimeCooking></recipe_TimeCooking>
+    <recipe_TimePrep></recipe_TimePrep>
+    <recipe_TimeTotal>30</recipe_TimeTotal>
+  </recipe>
+  <recipe>
+    <public_Authors></public_Authors>
+    <public_Date></public_Date>
+    <public_Title>Recipe 3</public_Title>
+    <public_UrlImage>image/recipe-3.jpg</public_UrlImage>
+    <public_UrlPage>recipe/recipe-3.html</public_UrlPage>
+    <public_UrlSearchResult>search-result/recipe-3.txt</public_UrlSearchResult>
+    <filter_Alt>veggie,vegan</filter_Alt>
+    <filter_Celebration></filter_Celebration>
+    <filter_Tags>Vegan</filter_Tags>
+    <recipe_Ingredients></recipe_Ingredients>
+    <recipe_TimeCooking></recipe_TimeCooking>
+    <recipe_TimePrep></recipe_TimePrep>
+    <recipe_TimeTotal>30</recipe_TimeTotal>
+  </recipe>
+  <recipe>
+    <public_Authors></public_Authors>
+    <public_Date></public_Date>
+    <public_Title>Recipe 4</public_Title>
+    <public_UrlImage>image/recipe-4.jpg</public_UrlImage>
+    <public_UrlPage>recipe/recipe-4.html</public_UrlPage>
+    <public_UrlSearchResult>search-result/recipe-4.txt</public_UrlSearchResult>
+    <filter_Alt>veggie,vegan</filter_Alt>
+    <filter_Celebration></filter_Celebration>
+    <filter_Tags>Vegan</filter_Tags>
+    <recipe_Ingredients></recipe_Ingredients>
+    <recipe_TimeCooking></recipe_TimeCooking>
+    <recipe_TimePrep></recipe_TimePrep>
+    <recipe_TimeTotal>40</recipe_TimeTotal>
+  </recipe>
+  <recipe>
+    <public_Authors></public_Authors>
+    <public_Date></public_Date>
+    <public_Title>Recipe 5</public_Title>
+    <public_UrlImage>image/recipe-5.jpg</public_UrlImage>
+    <public_UrlPage>recipe/recipe-5.html</public_UrlPage>
+    <public_UrlSearchResult>search-result/recipe-5.txt</public_UrlSearchResult>
+    <filter_Alt></filter_Alt>
+    <filter_Celebration></filter_Celebration>
+    <filter_Tags></filter_Tags>
+    <recipe_Ingredients></recipe_Ingredients>
+    <recipe_TimeCooking></recipe_TimeCooking>
+    <recipe_TimePrep></recipe_TimePrep>
+    <recipe_TimeTotal>40</recipe_TimeTotal>
+  </recipe>
+  <recipe>
+    <public_Authors></public_Authors>
+    <public_Date></public_Date>
+    <public_Title>Recipe 6</public_Title>
+    <public_UrlImage>image/recipe-6.jpg</public_UrlImage>
+    <public_UrlPage>recipe/recipe-6.html</public_UrlPage>
+    <public_UrlSearchResult>search-result/recipe-6.txt</public_UrlSearchResult>
+    <filter_Alt></filter_Alt>
+    <filter_Celebration></filter_Celebration>
+    <filter_Tags></filter_Tags>
+    <recipe_Ingredients></recipe_Ingredients>
+    <recipe_TimeCooking></recipe_TimeCooking>
+    <recipe_TimePrep></recipe_TimePrep>
+    <recipe_TimeTotal>40</recipe_TimeTotal>
+  </recipe>
+</recipes>

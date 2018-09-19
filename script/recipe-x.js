@@ -29,7 +29,7 @@
     }
 
     // Calculate ingredient quantities based on value of servings field
-    Quantities_Calculate = function () {
+    function Quantities_Calculate() {
         // Test whether value is positive integer
         if (RegExp_PositiveInteger.test(ServingsField.value)) {
             Servings = ServingsField.value.trim();
@@ -87,5 +87,5 @@
         } else {
             Snackbar.MaterialSnackbar.showSnackbar({ message: "Invalid input.\u00A0\u00A0Showing quantities for " + Servings + " servings." });
         }
-    };
+    }
 })();
