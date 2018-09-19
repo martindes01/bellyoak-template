@@ -32,7 +32,7 @@
 
     // Initialise page and load recipes XML document
     Reset();
-    Document_Load(recipes.xml, Results_Initialise);
+    Document_Load("recipes.xml", Results_Initialise);
 
     // Load specified document from server
     function Document_Load(Path, CallbackFunction) {
