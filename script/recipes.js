@@ -126,7 +126,7 @@
     function Results_RetrieveText(Request) {
         ResultText += Request.responseText;
         // Display all results when retrieved
-        if (ResultCount++ === ResultSetUB) {
+        if (++ResultCount === ResultSetUB) {
             // Update result indices
             ResultIndices.forEach(function (ResultIndex) {
                 ResultIndex.innerHTML = ResultSetLB + " to " + ResultSetUB + " of " + ResultTotal;
