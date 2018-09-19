@@ -12,7 +12,7 @@
 
     // Event listeners
     if (document.addEventListener) {
-        // Print button - Open document print dialog on click
+        // Print buttons - Open document print dialog on click
         PrintButtons.forEach(function (PrintButton) {
             PrintButton.addEventListener("click", function () { window.print(); }, false);
         });
@@ -20,7 +20,7 @@
         ServingsField.addEventListener("change", function () { Quantities_Calculate(); }, false);
     } else if (document.attachEvent) {
         // Support for Internet Explorer
-        // Print button - Open document print dialog on click
+        // Print buttons - Open document print dialog on click
         PrintButtons.forEach(function (PrintButton) {
             PrintButton.attachEvent("onclick", function () { window.print(); });
         });
