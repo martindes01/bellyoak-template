@@ -7,13 +7,11 @@
     <public_UrlImage>image/recipe-1.jpg</public_UrlImage>
     <public_UrlPage>recipe/recipe-1.html</public_UrlPage>
     <public_UrlSearchResult>search-result/recipe-1.txt</public_UrlSearchResult>
-    <filter_Alt>veggie,vegetarian,egg,dairy</filter_Alt>
+    <filter_Alt></filter_Alt>
     <filter_Celebration></filter_Celebration>
-    <filter_Tags>Vegetarian</filter_Tags>
+    <filter_Tags>vegetarian</filter_Tags>
     <recipe_Ingredients>eggs,milk</recipe_Ingredients>
-    <recipe_TimeCooking></recipe_TimeCooking>
-    <recipe_TimePrep></recipe_TimePrep>
-    <recipe_TimeTotal>30</recipe_TimeTotal>
+    <recipe_Time>30</recipe_Time>
   </recipe>
   <recipe>
     <public_Authors></public_Authors>
@@ -22,13 +20,11 @@
     <public_UrlImage>image/recipe-2.jpg</public_UrlImage>
     <public_UrlPage>recipe/recipe-2.html</public_UrlPage>
     <public_UrlSearchResult>search-result/recipe-2.txt</public_UrlSearchResult>
-    <filter_Alt>veggie,vegetarian</filter_Alt>
+    <filter_Alt></filter_Alt>
     <filter_Celebration></filter_Celebration>
-    <filter_Tags>Vegetarian</filter_Tags>
+    <filter_Tags>vegetarian</filter_Tags>
     <recipe_Ingredients></recipe_Ingredients>
-    <recipe_TimeCooking></recipe_TimeCooking>
-    <recipe_TimePrep></recipe_TimePrep>
-    <recipe_TimeTotal>30</recipe_TimeTotal>
+    <recipe_Time>30</recipe_Time>
   </recipe>
   <recipe>
     <public_Authors></public_Authors>
@@ -37,13 +33,11 @@
     <public_UrlImage>image/recipe-3.jpg</public_UrlImage>
     <public_UrlPage>recipe/recipe-3.html</public_UrlPage>
     <public_UrlSearchResult>search-result/recipe-3.txt</public_UrlSearchResult>
-    <filter_Alt>veggie,vegan</filter_Alt>
+    <filter_Alt></filter_Alt>
     <filter_Celebration></filter_Celebration>
-    <filter_Tags>Vegan</filter_Tags>
+    <filter_Tags>vegan</filter_Tags>
     <recipe_Ingredients></recipe_Ingredients>
-    <recipe_TimeCooking></recipe_TimeCooking>
-    <recipe_TimePrep></recipe_TimePrep>
-    <recipe_TimeTotal>30</recipe_TimeTotal>
+    <recipe_Time>30</recipe_Time>
   </recipe>
   <recipe>
     <public_Authors></public_Authors>
@@ -52,13 +46,11 @@
     <public_UrlImage>image/recipe-4.jpg</public_UrlImage>
     <public_UrlPage>recipe/recipe-4.html</public_UrlPage>
     <public_UrlSearchResult>search-result/recipe-4.txt</public_UrlSearchResult>
-    <filter_Alt>veggie,vegan</filter_Alt>
+    <filter_Alt></filter_Alt>
     <filter_Celebration></filter_Celebration>
-    <filter_Tags>Vegan</filter_Tags>
+    <filter_Tags>vegan</filter_Tags>
     <recipe_Ingredients></recipe_Ingredients>
-    <recipe_TimeCooking></recipe_TimeCooking>
-    <recipe_TimePrep></recipe_TimePrep>
-    <recipe_TimeTotal>40</recipe_TimeTotal>
+    <recipe_Time>40</recipe_Time>
   </recipe>
   <recipe>
     <public_Authors></public_Authors>
@@ -71,9 +63,7 @@
     <filter_Celebration></filter_Celebration>
     <filter_Tags></filter_Tags>
     <recipe_Ingredients></recipe_Ingredients>
-    <recipe_TimeCooking></recipe_TimeCooking>
-    <recipe_TimePrep></recipe_TimePrep>
-    <recipe_TimeTotal>40</recipe_TimeTotal>
+    <recipe_Time>40</recipe_Time>
   </recipe>
   <recipe>
     <public_Authors></public_Authors>
@@ -86,8 +76,6 @@
     <filter_Celebration></filter_Celebration>
     <filter_Tags></filter_Tags>
     <recipe_Ingredients></recipe_Ingredients>
-    <recipe_TimeCooking></recipe_TimeCooking>
-    <recipe_TimePrep></recipe_TimePrep>
-    <recipe_TimeTotal>40</recipe_TimeTotal>
+    <recipe_Time>40</recipe_Time>
   </recipe>
 </recipes>

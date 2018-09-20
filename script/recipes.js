@@ -11,10 +11,13 @@
     var ResultIndices = document.querySelectorAll(".site-js-result-index");
     var ResultPlaceholder = document.getElementById("result-placeholder");
     var SearchButton = document.getElementById("search-button");
+    var SearchButtonTooltip = document.getElementById("search-button-tooltip");
     var SearchField = document.getElementById("search-field");
 
     // Private variables - Values
     var RecipesXML;
+    var RecipesText = [];
+    var RegExp_SearchQueryDelimeter = /\s*\W\s*/;
     var ResultIndex;
     var ResultMax = 5;
     var ResultSetLB;
@@ -23,7 +26,6 @@
     var ResultTotal;
     var ResultURLs_All = [];
     var ResultURLs_Search = [];
-    //var SearchQuery = '';
 
     // Event listeners
     if (document.addEventListener) {
@@ -35,6 +37,8 @@
         PreviousButtons.forEach(function (PreviousButton) {
             PreviousButton.addEventListener("click", function () { Results_IteratePrevious(); }, false);
         });
+        // Search button - Initiate search on click
+        SearchButton.addEventListener("click", function () { Search_Initiate(); }, false);
     } else if (document.attachEvent) {
         // Support for Internet Explorer
         // Next buttons - Show next set of results on click
@@ -45,6 +49,8 @@
         PreviousButtons.forEach(function (PreviousButton) {
             PreviousButton.attachEvent("onclick", function () { Results_IteratePrevious(); });
         });
+        // Search button - Initiate search on click
+        SearchButton.attachEvent("onclick", function () { Search_Initiate(); });
     }
 
     // Initialise page and load recipes XML document
@@ -76,6 +82,12 @@
         if (ResultPlaceholder.classList.contains("hidden")) {
             ResultPlaceholder.classList.remove("hidden");
         }
+        if (!SearchButton.hasAttribute("disabled")) {
+            SearchButton.setAttribute("disabled", '');
+        }
+        if (SearchButtonTooltip.classList.contains("is-active")) {
+            SearchButtonTooltip.classList.remove("is-active");
+        }
         // Reset variables
         ResultText = '';
     }
@@ -89,16 +101,10 @@
             }
         });
         PreviousButtonTooltips.forEach(function (PreviousButtonTooltip) {
-            if (!PreviousButtonTooltip.classList.contains("hidden")) {
-                PreviousButtonTooltip.classList.add("hidden");
-            }
             if (PreviousButtonTooltip.classList.contains("is-active")) {
                 PreviousButtonTooltip.classList.remove("is-active");
             }
         });
-        if (!SearchButton.hasAttribute("disabled")) {
-            SearchButton.setAttribute("disabled", '');
-        }
         // Reset variables
         ResultIndex = 0;
         ResultSetLB = 1;
@@ -116,13 +122,17 @@
         // Replace result placeholder with result container
         ResultContainer.classList.remove("hidden");
         ResultPlaceholder.classList.add("hidden");
+        // Enable search button
+        SearchButton.removeAttribute("disabled");
     }
 
     // Initialise result area
     function Results_Initialise(Request) {
-        // Save recipes XML document and result URLs
+        // Save recipes XML document and recipe node text content
         RecipesXML = Request.responseXML;
-        ResultURLs_All = XML_RetrieveContent(Request, RecipesXML, "//public_UrlSearchResult");
+        RecipesText = XML_RetrieveTextContent(Request, RecipesXML, "//recipe");
+        // Save all result URLs
+        ResultURLs_All = XML_RetrieveTextContent(Request, RecipesXML, "//public_UrlSearchResult");
         // Iterate initial set of results
         ResultURLs_Search = ResultURLs_All.slice(0);
         ResultTotal = ResultURLs_Search.length;
@@ -143,9 +153,6 @@
             });
             // Disable next button tooltips
             NextButtonTooltips.forEach(function (NextButtonTooltip) {
-                if (!NextButtonTooltip.classList.contains("hidden")) {
-                    NextButtonTooltip.classList.add("hidden");
-                }
                 if (NextButtonTooltip.classList.contains("is-active")) {
                     NextButtonTooltip.classList.remove("is-active");
                 }
@@ -159,12 +166,6 @@
                     NextButton.removeAttribute("disabled");
                 }
             });
-            // Enable next button tooltips
-            NextButtonTooltips.forEach(function (NextButtonTooltip) {
-                if (NextButtonTooltip.classList.contains("hidden")) {
-                    NextButtonTooltip.classList.remove("hidden");
-                }
-            });
         }
         // Begin requesting results
         Results_Request(ResultSetLB - 1);
@@ -175,7 +176,7 @@
         // Reset elements and variables as necessary
         Reset_OnIterate();
         // Scroll result placeholder into view
-        ResultPlaceholder.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        ResultPlaceholder.scrollIntoView({ block: "nearest" });
         // Set iteration variables
         ResultSetLB += ResultMax;
         ResultIndex = ResultSetLB - 1;
@@ -183,12 +184,6 @@
         PreviousButtons.forEach(function (PreviousButton) {
             if (PreviousButton.hasAttribute("disabled")) {
                 PreviousButton.removeAttribute("disabled");
-            }
-        });
-        // Enable previous button tooltips
-        PreviousButtonTooltips.forEach(function (PreviousButtonTooltip) {
-            if (PreviousButtonTooltip.classList.contains("hidden")) {
-                PreviousButtonTooltip.classList.remove("hidden");
             }
         });
         // Iterate this set of results
@@ -200,7 +195,7 @@
         // Reset elements and variables as necessary
         Reset_OnIterate();
         // Scroll result placeholder into view
-        ResultPlaceholder.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        ResultPlaceholder.scrollIntoView({ block: "nearest" });
         // Set iteration variables
         ResultSetLB -= ResultMax;
         ResultIndex = ResultSetLB - 1;
@@ -214,9 +209,6 @@
             });
             // Disable previous button tooltips
             PreviousButtonTooltips.forEach(function (PreviousButtonTooltip) {
-                if (!PreviousButtonTooltip.classList.contains("hidden")) {
-                    PreviousButtonTooltip.classList.add("hidden");
-                }
                 if (PreviousButtonTooltip.classList.contains("is-active")) {
                     PreviousButtonTooltip.classList.remove("is-active");
                 }
@@ -248,17 +240,85 @@
         }
     }
 
-    // !!!
-    // Retrieve text values of nodes at specified path
-    // Retrieve specified content from nodes at specified path
-    function XML_RetrieveContent(Request, ContextNode, NodePath) {
+    // Initiate search
+    function Search_Initiate() {
+        // Reset elements and variables as necessary
+        Reset_OnSearch();
+        // Test whether search query contains search items
+        var SearchQuery = SearchField.value.trim();
+        if (SearchQuery) {
+            // Split search query into items to be matched
+            var SearchItems = SearchQuery.split(RegExp_SearchQueryDelimeter);
+            // Assign each result a value indicating number of matched search items
+            var SearchRankings = [[], []];
+            ResultURLs_All.forEach(function (ResultURL, i) {
+                var Count = 0;
+                SearchItems.forEach(function (SearchItem) {
+                    Count += Search_ReturnMatches(RecipesText[i], SearchItem);
+                });
+                SearchRankings.push([ResultURL, Count]);
+            });
+            // Sort search rankings by matches descending
+            SearchRankings.sort(Search_SortRankings);
+            // Save matched search result URLs
+            SearchRankings.forEach(function (SearchRanking) {
+                if (SearchRanking[1]) {
+                    ResultURLs_Search.push(SearchRanking[0]);
+                }
+            });
+        } else {
+            // Copy all result URLs to search result URLs
+            ResultURLs_Search = ResultURLs_All.slice(0);
+        }
+        // Iterate initial set of results
+        ResultTotal = ResultURLs_Search.length;
+        Results_Iterate();
+    }
+
+    // Return number of matches of substring in string
+    function Search_ReturnMatches(String, Substring) {
+        var Count = 0;
+        // Test whether substring is not empty
+        if (Substring) {
+            var Position = 0;
+            var Step = Substring.length;
+            while (true) {
+                // Find position of next substring in string
+                Position = String.indexOf(Substring, Position);
+                // Test whether substring was found
+                if (Position >= 0) {
+                    Count++;
+                    // Increase search position so find not repeated
+                    Position += Step;
+                } else {
+                    break;
+                }
+            }
+        }
+        return Count;
+    }
+
+    // Sort search rankings by matches descending
+    function Search_SortRankings(a, b) {
+        // Test whether values equal
+        if (a[1] === b[1]) {
+            // Retain order
+            return 0;
+        } else {
+            // Sort descending
+            return a[1] > b[1] ? -1 : 1;
+        }
+    }
+
+    // Retrieve text content of nodes at specified path
+    function XML_RetrieveTextContent(Request, ContextNode, NodePath) {
         var TextValues = [];
-        // Retrieve contents of nodes at specified path
+        // Retrieve text content of nodes at specified path
         if (ContextNode.evaluate) {
             var Nodes = ContextNode.evaluate(NodePath, ContextNode, null, XPathResult.ANY_TYPE, null);
             var NextNode = Nodes.iterateNext();
             while (NextNode) {
-                TextValues.push(NextNode.childNodes[0].nodeValue);
+                TextValues.push(NextNode.textContent);
                 NextNode = Nodes.iterateNext();
             }
         } else if (window.ActiveXObject || Request.responseType === "msxml-document") {
@@ -267,7 +327,7 @@
             var Nodes = ContextNode.selectNodes(NodePath);
             var NodesLength = Nodes.length;
             for (var i = 0; i < NodesLength; i++) {
-                TextValues.push(Nodes[i].childNodes[0].nodeValue);
+                TextValues.push(Nodes[i].textContent);
             }
         }
         return TextValues;
