@@ -18,6 +18,31 @@
     height: 128px;
 }
 
+.site-data-table {
+    white-space: initial !important;
+}
+
+.site-data-table td, .mdl-data-table th {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+}
+
+.site-data-table td:first-of-type, .mdl-data-table th:first-of-type {
+    padding-left: 16px !important;
+}
+
+.site-data-table td:last-of-type, .mdl-data-table th:last-of-type {
+    padding-right: 16px !important;
+}
+
+.site-data-table .mdl-checkbox .is-upgraded {
+    padding-left: initial !important;
+}
+
+.site-data-table .mdl-data-table__select {
+    padding-left: initial !important;
+}
+
 .site-tooltip {
     border-radius: 4px !important;
 }
