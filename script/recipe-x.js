@@ -1,13 +1,15 @@
 // Designed to work alongside Material Design Lite v1.3.0
 
 (function () {
+    // Private constants
+    const RegExp_PositiveInteger = /^(\s*[0]*[1-9]+[0-9]*\s*)$/;
+
     // Private variables - Elements
     var PrintButtons = document.querySelectorAll(".site-js-print-button");
     var ServingsField = document.getElementById("servings-field");
     var Snackbar = document.querySelector(".mdl-js-snackbar");
 
     // Private variables - Values
-    var RegExp_PositiveInteger = /^(\s*[0]*[1-9]+[0-9]*\s*)$/;
     var Servings = ServingsField.value;
 
     // Event listeners
