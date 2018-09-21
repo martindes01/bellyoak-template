@@ -19,7 +19,7 @@
             PrintButton.addEventListener("click", function () { window.print(); }, false);
         });
         // Servings field - Calculate ingredient quantities on value change
-        ServingsField.addEventListener("change", function () { Quantities_Calculate(); }, false);
+        ServingsField.addEventListener("change", Quantities_Calculate, false);
     } else if (document.attachEvent) {
         // Support for Internet Explorer
         // Print buttons - Open document print dialog on click
@@ -27,7 +27,7 @@
             PrintButton.attachEvent("onclick", function () { window.print(); });
         });
         // Servings field - Calculate ingredient quantities on value change
-        ServingsField.attachEvent("onchange", function () { Quantities_Calculate(); });
+        ServingsField.attachEvent("onchange", Quantities_Calculate);
     }
 
     // Calculate ingredient quantities based on value of servings field
@@ -41,7 +41,7 @@
                 // Test whether ingredient quantity is dynamic
                 if (Ingredient.hasAttribute("data-ingredient-specific-quantity")) {
                     var IngredientQuantity = Ingredient.getAttribute("data-ingredient-specific-quantity") * Servings;
-                    // Test whether ingredient has a non-trivial unit
+                    // Test whether ingredient has non-trivial unit
                     if (Ingredient.hasAttribute("data-ingredient-basic-unit")) {
                         var IngredientBasicUnit = Ingredient.getAttribute("data-ingredient-basic-unit");
                         // Initialise unit prefix as necessary

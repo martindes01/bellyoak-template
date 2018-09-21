@@ -10,7 +10,7 @@
       <meta name="total-cooking-time" content="30" />
     </head>
     <body>
-      <title>[Recipe][1]</title>
+      <title>[recipe][1]</title>
       <keywords>[vegetarian]</keywords>
       <ingredients>[eggs][milk]</ingredients>
     </body>
@@ -25,7 +25,7 @@
       <meta name="total-cooking-time" content="30" />
     </head>
     <body>
-      <title>[Recipe][2]</title>
+      <title>[recipe][2]</title>
       <keywords>[vegetarian]</keywords>
       <ingredients></ingredients>
     </body>
@@ -40,7 +40,7 @@
       <meta name="total-cooking-time" content="30" />
     </head>
     <body>
-      <title>[Recipe][3]</title>
+      <title>[recipe][3]</title>
       <keywords>[vegan]</keywords>
       <ingredients></ingredients>
     </body>
@@ -55,7 +55,7 @@
       <meta name="total-cooking-time" content="40" />
     </head>
     <body>
-      <title>[Recipe][4]</title>
+      <title>[recipe][4]</title>
       <keywords>[vegan]</keywords>
       <ingredients></ingredients>
     </body>
@@ -70,7 +70,7 @@
       <meta name="total-cooking-time" content="40" />
     </head>
     <body>
-      <title>[Recipe][5]</title>
+      <title>[recipe][5]</title>
       <keywords></keywords>
       <ingredients></ingredients>
     </body>
@@ -85,7 +85,7 @@
       <meta name="total-cooking-time" content="40" />
     </head>
     <body>
-      <title>[Recipe][6]</title>
+      <title>[recipe][6]</title>
       <keywords></keywords>
       <ingredients></ingredients>
     </body>

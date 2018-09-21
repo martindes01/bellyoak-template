@@ -2,8 +2,15 @@
 
 (function () {
     // Private constants
+    const NodePath_Bodies = "//body";
+    const NodePath_ResultURLs = "//head/link[@rel=\"search-result\"]/@href";
+    const Path_RecipesXML = "recipes.xml";
     const RegExp_NonWordCharacters = /\W+/;
     const ResultMax = 5;
+    const SearchScore_End = 0.4;
+    const SearchScore_Middle = 0.2;
+    const SearchScore_Span = 1;
+    const SearchScore_Start = 0.7;
 
     // Private variables - Elements
     var NextButtons = document.querySelectorAll(".site-js-next-button");
@@ -33,45 +40,31 @@
     if (document.addEventListener) {
         // Next buttons - Show next set of results on click
         NextButtons.forEach(function (NextButton) {
-            NextButton.addEventListener("click", function () { Results_IterateNext(); }, false);
+            NextButton.addEventListener("click", Results_IterateNext, false);
         });
         // Previous buttons - Show previous set of results on click
         PreviousButtons.forEach(function (PreviousButton) {
-            PreviousButton.addEventListener("click", function () { Results_IteratePrevious(); }, false);
+            PreviousButton.addEventListener("click", Results_IteratePrevious, false);
         });
         // Search button - Initiate search on click
-        SearchButton.addEventListener("click", function () { Search_Initiate(); }, false);
-        // Search field - Initiate search on enter key press
-        SearchField.addEventListener("keypress", function (e) {
-            // Test whether enter key was pressed
-            if (e.key === "Enter") {
-                Search_Initiate();
-            }
-        }, false);
+        SearchButton.addEventListener("click", Search_Initiate, false);
     } else if (document.attachEvent) {
         // Support for Internet Explorer
         // Next buttons - Show next set of results on click
         NextButtons.forEach(function (NextButton) {
-            NextButton.attachEvent("onclick", function () { Results_IterateNext(); });
+            NextButton.attachEvent("onclick", Results_IterateNext);
         });
         // Previous buttons - Show previous set of results on click
         PreviousButtons.forEach(function (PreviousButton) {
-            PreviousButton.attachEvent("onclick", function () { Results_IteratePrevious(); });
+            PreviousButton.attachEvent("onclick", Results_IteratePrevious);
         });
         // Search button - Initiate search on click
-        SearchButton.attachEvent("onclick", function () { Search_Initiate(); });
-        // Search field - Initiate search on enter key press
-        SearchField.attachEvent("onkeypress", function () {
-            // Test whether enter key was pressed
-            if (window.event.key === "Enter") {
-                Search_Initiate();
-            }
-        }, false);
+        SearchButton.attachEvent("onclick", Search_Initiate);
     }
 
     // Initialise page and load recipes XML document
     Reset_OnSearch();
-    Document_Load("recipes.xml", Results_Initialise);
+    Document_Load(Path_RecipesXML, Results_Initialise);
 
     // Load specified document from server
     function Document_Load(Path, CallbackFunction) {
@@ -103,6 +96,14 @@
         }
         if (SearchButtonTooltip.classList.contains("is-active")) {
             SearchButtonTooltip.classList.remove("is-active");
+        }
+        if (typeof Listener_SearchFieldKeyPress === "function") {
+            if (document.removeEventListener) {
+                SearchField.removeEventListener("keypress", Listener_SearchFieldKeyPress, false);
+            } else if (document.detachEvent) {
+                // Support for Internet Explorer
+                SearchField.detachEvent("onkeypress", Listener_SearchFieldKeyPress);
+            }
         }
         // Reset variables
         ResultText = '';
@@ -140,15 +141,32 @@
         ResultPlaceholder.classList.add("hidden");
         // Enable search button
         SearchButton.removeAttribute("disabled");
+        // Add event listener to search field - Initiate search on enter key press
+        if (document.addEventListener) {
+            SearchField.addEventListener("keypress", Listener_SearchFieldKeyPress = function (e) {
+                // Test whether enter key was pressed
+                if (e.key === "Enter") {
+                    Search_Initiate();
+                }
+            }, false);
+        } else if (document.attachEvent) {
+            // Support for Internet Explorer
+            SearchField.attachEvent("onkeypress", Listener_SearchFieldKeyPress = function () {
+                // Test whether enter key was pressed
+                if (window.event.key === "Enter") {
+                    Search_Initiate();
+                }
+            });
+        }
     }
 
     // Initialise result area
     function Results_Initialise(Request) {
         // Save recipes XML document and recipe node text content
         RecipesXML = Request.responseXML;
-        RecipesText = XML_RetrieveTextContent(Request, RecipesXML, "//body");
+        RecipesText = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Bodies).map(Text => Text.toLowerCase());
         // Save all result URLs
-        ResultURLs_All = XML_RetrieveTextContent(Request, RecipesXML, "//head/link[@rel=\"search-result\"]/@href");
+        ResultURLs_All = XML_RetrieveTextContent(Request, RecipesXML, NodePath_ResultURLs);
         // Iterate initial set of results
         ResultURLs_Search = ResultURLs_All.slice(0);
         ResultTotal = ResultURLs_Search.length;
@@ -269,16 +287,16 @@
         if (SearchQuery) {
             // Split search query into items to be matched
             var SearchItems = SearchQuery.split(RegExp_NonWordCharacters);
-            // Assign each result a value indicating number of matched search items
+            // Assign each result weighted score of matched search items
             var SearchRankings = [];
             ResultURLs_All.forEach(function (ResultURL, i) {
                 var Count = 0;
                 SearchItems.forEach(function (SearchItem) {
-                    Count += Search_ReturnMatches(RecipesText[i], SearchItem);
+                    Count += Search_ReturnScore(RecipesText[i], SearchItem);
                 });
                 SearchRankings.push([ResultURL, Count]);
             });
-            // Sort search rankings by matches descending
+            // Sort search rankings by score descending
             SearchRankings.sort(Search_SortRankings);
             // Save matched search result URLs
             SearchRankings.forEach(function (SearchRanking) {
@@ -295,9 +313,9 @@
         Results_Iterate();
     }
 
-    // Return number of matches of substring in string
-    function Search_ReturnMatches(String, Substring) {
-        var Count = 0;
+    // Return weighted score of matches of substring in string
+    function Search_ReturnScore(String, Substring) {
+        var Score = 0;
         // Test whether substring is not empty
         if (Substring) {
             var Position = 0;
@@ -307,7 +325,18 @@
                 Position = String.indexOf(Substring, Position);
                 // Test whether substring was found
                 if (Position >= 0) {
-                    Count++;
+                    // Increment score based on position of substring within string entry
+                    if (String.charAt(Position - 1) === "[") {
+                        if (String.charAt(Position + Step) === "]") {
+                            Score += SearchScore_Span;
+                        } else {
+                            Score += SearchScore_Start;
+                        }
+                    } else if (String.charAt(Position + Step) === "]") {
+                        Score += SearchScore_End;
+                    } else {
+                        Score += SearchScore_Middle;
+                    }
                     // Increase search position so find not repeated
                     Position += Step;
                 } else {
@@ -315,10 +344,10 @@
                 }
             }
         }
-        return Count;
+        return Score;
     }
 
-    // Sort search rankings by matches descending
+    // Sort search rankings by score descending
     function Search_SortRankings(a, b) {
         // Test whether values equal
         if (a[1] === b[1]) {
