@@ -2,8 +2,16 @@
 
 (function () {
     // Private constants
-    const NodePath_Bodies = "//body";
-    const NodePath_ResultURLs = "//head/link[@rel=\"search-result\"]/@href";
+    const Dim_RecipesData_Body = 1;
+    const Dim_RecipesData_Date = 2;
+    const Dim_RecipesData_ResultURL = 0;
+    const Dim_RecipesData_Tags = 3;
+    const Dim_RecipesData_Time = 4;
+    const NodePath_Body = "//body";
+    const NodePath_Date = "//head/meta[@name=\"date\"]/@content";
+    const NodePath_ResultURL = "//head/link[@rel=\"result-url\"]/@href";
+    const NodePath_Tags = "//head/meta[@name=\"tags\"]/@content";
+    const NodePath_Time = "//head/meta[@name=\"time\"]/@content";
     const Path_RecipesXML = "recipes.xml";
     const RegExp_NonWordCharacters = /\W+/;
     const ResultMax = 5;
@@ -26,15 +34,13 @@
     var SearchField = document.getElementById("search-field");
 
     // Private variables - Values
-    var RecipesXML;
-    var RecipesText = [];
+    var Recipes_All = [];
+    var Recipes_Search = [];
     var ResultIndex;
     var ResultSetLB;
     var ResultSetUB;
     var ResultText;
     var ResultTotal;
-    var ResultURLs_All = [];
-    var ResultURLs_Search = [];
 
     // Event listeners
     if (document.addEventListener) {
@@ -123,10 +129,10 @@
             }
         });
         // Reset variables
+        Recipes_Search.splice(0);
         ResultIndex = 0;
         ResultSetLB = 1;
         ResultText = '';
-        ResultURLs_Search.splice(0);
         // Reset others
         Reset_OnIterate();
     }
@@ -162,14 +168,20 @@
 
     // Initialise result area
     function Results_Initialise(Request) {
-        // Save recipes XML document and recipe node text content
-        RecipesXML = Request.responseXML;
-        RecipesText = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Bodies).map(Text => Text.toLowerCase());
-        // Save all result URLs
-        ResultURLs_All = XML_RetrieveTextContent(Request, RecipesXML, NodePath_ResultURLs);
+        // Store recipes XML document
+        var RecipesXML = Request.responseXML;
+        // Save data for each recipe
+        var Dates = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Date);
+        var Bodies = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Body).map(Text => Text.toLowerCase());
+        var ResultURLs = XML_RetrieveTextContent(Request, RecipesXML, NodePath_ResultURL);
+        var Tags = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Tags).map(Text => Text.toLowerCase());
+        var Times = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Time);
+        ResultURLs.forEach(function (SearchResultURL, i) {
+            Recipes_All.push([SearchResultURL, Bodies[i], Dates[i], Tags[i], Times[i]]);
+        });
         // Iterate initial set of results
-        ResultURLs_Search = ResultURLs_All.slice(0);
-        ResultTotal = ResultURLs_Search.length;
+        Recipes_Search = Recipes_All.slice(0);
+        ResultTotal = Recipes_Search.length;
         Results_Iterate();
     }
 
@@ -258,7 +270,7 @@
 
     // Request specified result from server
     function Results_Request(Index) {
-        Document_Load(ResultURLs_Search[Index], Results_RetrieveText);
+        Document_Load(Recipes_Search[Index][Dim_RecipesData_ResultURL], Results_RetrieveText);
     }
 
     // Retrieve result text
@@ -287,29 +299,29 @@
         if (SearchQuery) {
             // Split search query into items to be matched
             var SearchItems = SearchQuery.split(RegExp_NonWordCharacters);
-            // Assign each result weighted score of matched search items
+            // Assign each recipe weighted score of matched search items
             var SearchRankings = [];
-            ResultURLs_All.forEach(function (ResultURL, i) {
+            Recipes_All.forEach(function (RecipeData) {
                 var Count = 0;
                 SearchItems.forEach(function (SearchItem) {
-                    Count += Search_ReturnScore(RecipesText[i], SearchItem);
+                    Count += Search_ReturnScore(RecipeData[Dim_RecipesData_Body], SearchItem);
                 });
-                SearchRankings.push([ResultURL, Count]);
+                SearchRankings.push([RecipeData, Count]);
             });
             // Sort search rankings by score descending
             SearchRankings.sort(Search_SortRankings);
-            // Save matched search result URLs
+            // Save matched recipes
             SearchRankings.forEach(function (SearchRanking) {
                 if (SearchRanking[1]) {
-                    ResultURLs_Search.push(SearchRanking[0]);
+                    Recipes_Search.push(SearchRanking[0]);
                 }
             });
         } else {
-            // Copy all result URLs to search result URLs
-            ResultURLs_Search = ResultURLs_All.slice(0);
+            // Copy all recipes to search recipes
+            Recipes_Search = Recipes_All.slice(0);
         }
         // Iterate initial set of results
-        ResultTotal = ResultURLs_Search.length;
+        ResultTotal = Recipes_Search.length;
         Results_Iterate();
     }
 
