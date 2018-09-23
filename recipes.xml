@@ -33,7 +33,7 @@
       <title>Recipe 3</title>
       <link rel="result-url" href="search-result/recipe-3.txt" />
       <meta name="date" content="" />
-      <meta name="tags" content="vegan" />
+      <meta name="tags" content="vegan,vegetarian" />
       <meta name="time" content="30" />
     </head>
     <body>
@@ -47,7 +47,7 @@
       <title>Recipe 4</title>
       <link rel="result-url" href="search-result/recipe-4.txt" />
       <meta name="date" content="" />
-      <meta name="tags" content="vegan" />
+      <meta name="tags" content="vegan,vegetarian" />
       <meta name="time" content="40" />
     </head>
     <body>

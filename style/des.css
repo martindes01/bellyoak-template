@@ -119,67 +119,91 @@
 
 .des-typography--h1 {
     font-size: 6rem !important;
+    font-weight: 300;
     letter-spacing: 0.016rem !important;
+    text-transform: initial !important;
 }
 
 .des-typography--h2 {
     font-size: 3.75rem !important;
+    font-weight: 300;
     letter-spacing: 0.008rem !important;
+    text-transform: initial !important;
 }
 
 .des-typography--h3 {
     font-size: 3rem !important;
+    font-weight: 400;
     letter-spacing: 0 !important;
+    text-transform: initial !important;
 }
 
 .des-typography--h4 {
     font-size: 2.125rem !important;
+    font-weight: 400;
     letter-spacing: 0.007rem !important;
+    text-transform: initial !important;
 }
 
 .des-typography--h5 {
     font-size: 1.5rem !important;
+    font-weight: 400;
     letter-spacing: 0 !important;
+    text-transform: initial !important;
 }
 
 .des-typography--h6 {
     font-size: 1.25rem !important;
+    font-weight: 500;
     letter-spacing: 0.008rem !important;
+    text-transform: initial !important;
 }
 
 .des-typography--subtitle-1 {
     font-size: 1rem !important;
+    font-weight: 400;
     letter-spacing: 0.009rem !important;
+    text-transform: initial !important;
 }
 
 .des-typography--subtitle-2 {
     font-size: 0.875rem !important;
+    font-weight: 500;
     letter-spacing: 0.007rem !important;
+    text-transform: initial !important;
 }
 
 .des-typography--body-1 {
     font-size: 1rem !important;
+    font-weight: 400;
     letter-spacing: 0.031rem !important;
+    text-transform: initial !important;
 }
 
 .des-typography--body-2 {
     font-size: 0.875rem !important;
+    font-weight: 400;
     letter-spacing: 0.018rem !important;
+    text-transform: initial !important;
 }
 
 .des-typography--button {
     font-size: 0.875rem !important;
+    font-weight: 500;
     letter-spacing: 0.054rem !important;
     text-transform: uppercase !important;
 }
 
 .des-typography--caption {
     font-size: 0.75rem !important;
+    font-weight: 400;
     letter-spacing: 0.033rem !important;
+    text-transform: initial !important;
 }
 
 .des-typography--overline {
     font-size: 0.625rem !important;
+    font-weight: 400;
     letter-spacing: 0.15rem !important;
     text-transform: uppercase !important;
 }

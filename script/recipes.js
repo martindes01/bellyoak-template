@@ -2,11 +2,14 @@
 
 (function () {
     // Private constants
+    const Delimiter_Tags = ',';
     const Dim_RecipesData_Body = 1;
     const Dim_RecipesData_Date = 2;
     const Dim_RecipesData_ResultURL = 0;
     const Dim_RecipesData_Tags = 3;
     const Dim_RecipesData_Time = 4;
+    const FilterSubject_Tag = "tag";
+    const FilterSubject_Time = "time";
     const NodePath_Body = "//body";
     const NodePath_Date = "//head/meta[@name=\"date\"]/@content";
     const NodePath_ResultURL = "//head/link[@rel=\"result-url\"]/@href";
@@ -21,6 +24,7 @@
     const SearchScore_Start = 0.7;
 
     // Private variables - Elements
+    var FilterChips = document.querySelectorAll(".site-js-filter-chip");
     var NextButtons = document.querySelectorAll(".site-js-next-button");
     var NextButtonTooltips = document.querySelectorAll(".site-js-next-button-tooltip");
     var PreviousButtons = document.querySelectorAll(".site-js-previous-button");
@@ -34,6 +38,7 @@
     var SearchField = document.getElementById("search-field");
 
     // Private variables - Values
+    var Filters = [];
     var Recipes_All = [];
     var Recipes_Search = [];
     var ResultIndex;
@@ -44,6 +49,10 @@
 
     // Event listeners
     if (document.addEventListener) {
+        // Filter chips - Toggle filter on click
+        FilterChips.forEach(function (FilterChip) {
+            FilterChip.addEventListener("click", Search_ToggleFilter, false);
+        });
         // Next buttons - Show next set of results on click
         NextButtons.forEach(function (NextButton) {
             NextButton.addEventListener("click", Results_IterateNext, false);
@@ -56,6 +65,10 @@
         SearchButton.addEventListener("click", Search_Initiate, false);
     } else if (document.attachEvent) {
         // Support for Internet Explorer
+        // Filter chips - Toggle filter on click
+        FilterChips.forEach(function (FilterChip) {
+            FilterChip.attachEvent("onclick", Search_ToggleFilter);
+        });
         // Next buttons - Show next set of results on click
         NextButtons.forEach(function (NextButton) {
             NextButton.attachEvent("onclick", Results_IterateNext);
@@ -172,9 +185,9 @@
         var RecipesXML = Request.responseXML;
         // Save data for each recipe
         var Dates = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Date);
-        var Bodies = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Body).map(Text => Text.toLowerCase());
+        var Bodies = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Body).map(Body => Body.toLowerCase());
         var ResultURLs = XML_RetrieveTextContent(Request, RecipesXML, NodePath_ResultURL);
-        var Tags = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Tags).map(Text => Text.toLowerCase());
+        var Tags = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Tags).map(Tags => Tags.toLowerCase().split(Delimiter_Tags));
         var Times = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Time);
         ResultURLs.forEach(function (SearchResultURL, i) {
             Recipes_All.push([SearchResultURL, Bodies[i], Dates[i], Tags[i], Times[i]]);
@@ -294,6 +307,43 @@
     function Search_Initiate() {
         // Reset elements and variables as necessary
         Reset_OnSearch();
+        // Copy all recipes to filter recipes
+        var Recipes_Filter = Recipes_All.slice(0);
+        // Test whether filters are active
+        if (Filters.length) {
+            // Apply each filter
+            Filters.forEach(function (Filter) {
+                // Test filter subject
+                switch (Filter[0]) {
+                    case FilterSubject_Tag:
+                        for (var i = 0; i < Recipes_Filter.length; i++) {
+                            // Test whether recipe tags contain filter tag
+                            var ContainsTag = false;
+                            Recipes_Filter[i][Dim_RecipesData_Tags].forEach(function (RecipeTag) {
+                                if (RecipeTag === Filter[1]) {
+                                    ContainsTag = true;
+                                }
+                            });
+                            if (!ContainsTag) {
+                                // Remove recipe from filter recipes
+                                Recipes_Filter.splice(i, 1);
+                                i--;
+                            }
+                        }
+                        break;
+                    case FilterSubject_Time:
+                        for (var i = 0; i < Recipes_Filter.length; i++) {
+                            // Test whether recipe time exceeds filter time
+                            if (Recipes_Filter[i][Dim_RecipesData_Time] > Filter[1]) {
+                                // Remove recipe from filter recipes
+                                Recipes_Filter.splice(i, 1);
+                                i--;
+                            }
+                        }
+                        break;
+                }
+            });
+        }
         // Test whether search query contains search items
         var SearchQuery = SearchField.value.trim().toLowerCase();
         if (SearchQuery) {
@@ -301,7 +351,7 @@
             var SearchItems = SearchQuery.split(RegExp_NonWordCharacters);
             // Assign each recipe weighted score of matched search items
             var SearchRankings = [];
-            Recipes_All.forEach(function (RecipeData) {
+            Recipes_Filter.forEach(function (RecipeData) {
                 var Count = 0;
                 SearchItems.forEach(function (SearchItem) {
                     Count += Search_ReturnScore(RecipeData[Dim_RecipesData_Body], SearchItem);
@@ -317,8 +367,8 @@
                 }
             });
         } else {
-            // Copy all recipes to search recipes
-            Recipes_Search = Recipes_All.slice(0);
+            // Copy filter recipes to search recipes
+            Recipes_Search = Recipes_Filter.slice(0);
         }
         // Iterate initial set of results
         ResultTotal = Recipes_Search.length;
@@ -368,6 +418,44 @@
         } else {
             // Sort descending
             return a[1] > b[1] ? -1 : 1;
+        }
+    }
+
+    // Toggle search filter
+    function Search_ToggleFilter() {
+        if (this.classList.contains("is-active")) {
+            // Remove filter from current filters
+            if (this.hasAttribute("data-filter-subject") && this.hasAttribute("data-filter-value")) {
+                for (var i = 0; i < Filters.length; i++) {
+                    if (Filters[i][0] === this.getAttribute("data-filter-subject") && Filters[i][1] === this.getAttribute("data-filter-value")) {
+                        Filters.splice(i, 1);
+                        break;
+                    }
+                }
+            }
+            // Remove active filter chip classes from element and children
+            this.classList.remove("mdl-button--primary", "mdl-button--raised");
+            if (this.querySelector(".mdl-chip__action")) {
+                this.querySelector(".mdl-chip__action").classList.remove("mdl-color-text--primary-contrast");
+            }
+            // Add inactive filter chip classes
+            this.classList.add("des-color-text--surface-contrast");
+            // Remove active filter chip flag class
+            this.classList.remove("is-active");
+        } else {
+            // Add filter to current filters
+            if (this.hasAttribute("data-filter-subject") && this.hasAttribute("data-filter-value")) {
+                Filters.push([this.getAttribute("data-filter-subject"), this.getAttribute("data-filter-value")]);
+            }
+            // Remove inactive filter chip classes
+            this.classList.remove("des-color-text--surface-contrast");
+            // Add active filter chip classes to element and children
+            this.classList.add("mdl-button--primary", "mdl-button--raised");
+            if (this.querySelector(".mdl-chip__action")) {
+                this.querySelector(".mdl-chip__action").classList.add("mdl-color-text--primary-contrast");
+            }
+            // Add active filter chip flag class
+            this.classList.add("is-active");
         }
     }
 
