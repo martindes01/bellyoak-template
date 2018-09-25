@@ -15,9 +15,6 @@
     // Event listeners
     if (document.addEventListener) {
         // Print buttons - Open document print dialog on click
-        /*PrintButtons.forEach(function (PrintButton) {
-            PrintButton.addEventListener("click", function () { window.print(); }, false);
-        });*/
         for (var i in PrintButtons) {
             PrintButtons[i].addEventListener("click", function () { window.print(); }, false);
         }
@@ -26,9 +23,6 @@
     } else if (document.attachEvent) {
         // Support for Internet Explorer
         // Print buttons - Open document print dialog on click
-        /*PrintButtons.forEach(function (PrintButton) {
-            PrintButton.attachEvent("onclick", function () { window.print(); });
-        });*/
         for (var i in PrintButtons) {
             PrintButtons[i].attachEvent("onclick", function () { window.print(); });
         }
@@ -46,14 +40,10 @@
             //Ingredients.forEach(function (Ingredient) {
             for (var i in Ingredients) {
                 // Test whether ingredient quantity is dynamic
-                //if (Ingredient.hasAttribute("data-ingredient-specific-quantity")) {
                 if (Ingredients[i].hasAttribute("data-ingredient-specific-quantity")) {
-                    //var IngredientQuantity = Ingredient.getAttribute("data-ingredient-specific-quantity") * Servings;
                     var IngredientQuantity = Ingredients[i].getAttribute("data-ingredient-specific-quantity") * Servings;
                     // Test whether ingredient has non-trivial unit
-                    //if (Ingredient.hasAttribute("data-ingredient-basic-unit")) {
                     if (Ingredients[i].hasAttribute("data-ingredient-basic-unit")) {
-                        //var IngredientBasicUnit = Ingredient.getAttribute("data-ingredient-basic-unit");
                         var IngredientBasicUnit = Ingredients[i].getAttribute("data-ingredient-basic-unit");
                         // Initialise unit prefix as necessary
                         if (IngredientQuantity < 1) {
@@ -89,13 +79,11 @@
                         }
                         IngredientQuantity = IngredientQuantity.toPrecision(3);
                         // Display updated ingredient unit
-                        //Ingredient.querySelector(".site-js-ingredient__unit").innerHTML = IngredientUnitPrefix + IngredientBasicUnit;
                         Ingredients[i].querySelector(".site-js-ingredient__unit").innerHTML = IngredientUnitPrefix + IngredientBasicUnit;
                     } else if (IngredientQuantity.toString().length > 6) {
                         IngredientQuantity = IngredientQuantity.toPrecision(3);
                     }
                     // Display updated ingredient quantity
-                    //Ingredient.querySelector(".site-js-ingredient__quantity").innerHTML = IngredientQuantity;
                     Ingredients[i].querySelector(".site-js-ingredient__quantity").innerHTML = IngredientQuantity;
                 }
             //});

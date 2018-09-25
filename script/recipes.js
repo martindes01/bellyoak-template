@@ -3,11 +3,11 @@
 (function () {
     // Private constants
     const Delimiter_Tags = ',';
-    const Dim_RecipesData_Body = 1;
-    const Dim_RecipesData_Date = 2;
-    const Dim_RecipesData_ResultURL = 0;
-    const Dim_RecipesData_Tags = 3;
-    const Dim_RecipesData_Time = 4;
+    const Dim_Recipes_Body = 1;
+    const Dim_Recipes_Date = 2;
+    const Dim_Recipes_ResultURL = 0;
+    const Dim_Recipes_Tags = 3;
+    const Dim_Recipes_Time = 4;
     const FilterSubject_Tag = "tag";
     const FilterSubject_Time = "time";
     const NodePath_Body = "//body";
@@ -50,33 +50,33 @@
     // Event listeners
     if (document.addEventListener) {
         // Filter chips - Toggle filter on click
-        FilterChips.forEach(function (FilterChip) {
-            FilterChip.addEventListener("click", Search_ToggleFilter, false);
-        });
+        for (var i in FilterChips) {
+            FilterChips[i].addEventListener("click", Search_ToggleFilter, false);
+        }
         // Next buttons - Show next set of results on click
-        NextButtons.forEach(function (NextButton) {
-            NextButton.addEventListener("click", Results_IterateNext, false);
-        });
+        for (var i in NextButtons) {
+            NextButtons[i].addEventListener("click", Results_IterateNext, false);
+        }
         // Previous buttons - Show previous set of results on click
-        PreviousButtons.forEach(function (PreviousButton) {
-            PreviousButton.addEventListener("click", Results_IteratePrevious, false);
-        });
+        for (var i in PreviousButtons) {
+            PreviousButtons[i].addEventListener("click", Results_IteratePrevious, false);
+        }
         // Search button - Initiate search on click
         SearchButton.addEventListener("click", Search_Initiate, false);
     } else if (document.attachEvent) {
         // Support for Internet Explorer
         // Filter chips - Toggle filter on click
-        FilterChips.forEach(function (FilterChip) {
-            FilterChip.attachEvent("onclick", Search_ToggleFilter);
-        });
+        for (var i in FilterChips) {
+            FilterChips[i].attachEvent("onclick", Search_ToggleFilter);
+        }
         // Next buttons - Show next set of results on click
-        NextButtons.forEach(function (NextButton) {
-            NextButton.attachEvent("onclick", Results_IterateNext);
-        });
+        for (var i in NextButtons) {
+            NextButtons[i].attachEvent("onclick", Results_IterateNext);
+        }
         // Previous buttons - Show previous set of results on click
-        PreviousButtons.forEach(function (PreviousButton) {
-            PreviousButton.attachEvent("onclick", Results_IteratePrevious);
-        });
+        for (var i in PreviousButtons) {
+            PreviousButtons[i].attachEvent("onclick", Results_IteratePrevious);
+        }
         // Search button - Initiate search on click
         SearchButton.attachEvent("onclick", Search_Initiate);
     }
@@ -104,9 +104,9 @@
         if (!ResultContainer.classList.contains("hidden")) {
             ResultContainer.classList.add("hidden");
         }
-        ResultIndices.forEach(function (ResultIndex) {
-            ResultIndex.innerHTML = '';
-        });
+        for (var i in ResultIndices) {
+            ResultIndices[i].innerHTML = '';
+        }
         if (ResultPlaceholder.classList.contains("hidden")) {
             ResultPlaceholder.classList.remove("hidden");
         }
@@ -131,16 +131,16 @@
     // Reset elements and variables
     function Reset_OnSearch() {
         // Reset elements
-        PreviousButtons.forEach(function (PreviousButton) {
-            if (!PreviousButton.hasAttribute("disabled")) {
-                PreviousButton.setAttribute("disabled", '');
+        for (var i in PreviousButtons) {
+            if (!PreviousButtons[i].hasAttribute("disabled")) {
+                PreviousButtons[i].setAttribute("disabled", '');
             }
-        });
-        PreviousButtonTooltips.forEach(function (PreviousButtonTooltip) {
-            if (PreviousButtonTooltip.classList.contains("is-active")) {
-                PreviousButtonTooltip.classList.remove("is-active");
+        }
+        for (var i in PreviousButtonTooltips) {
+            if (PreviousButtonTooltips[i].classList.contains("is-active")) {
+                PreviousButtonTooltips[i].classList.remove("is-active");
             }
-        });
+        }
         // Reset variables
         Recipes_Search.splice(0);
         ResultIndex = 0;
@@ -189,9 +189,9 @@
         var ResultURLs = XML_RetrieveTextContent(Request, RecipesXML, NodePath_ResultURL);
         var Tags = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Tags).map(Tags => Tags.toLowerCase().split(Delimiter_Tags));
         var Times = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Time);
-        ResultURLs.forEach(function (SearchResultURL, i) {
-            Recipes_All.push([SearchResultURL, Bodies[i], Dates[i], Tags[i], Times[i]]);
-        });
+        for (var i in ResultURLs) {
+            Recipes_All.push([ResultURLs[i], Bodies[i], Dates[i], Tags[i], Times[i]]);
+        }
         // Iterate initial set of results
         Recipes_Search = Recipes_All.slice(0);
         ResultTotal = Recipes_Search.length;
@@ -206,26 +206,26 @@
                 // Include all remaining results
                 ResultSetUB = ResultTotal;
                 // Disable next buttons
-                NextButtons.forEach(function (NextButton) {
-                    if (!NextButton.hasAttribute("disabled")) {
-                        NextButton.setAttribute("disabled", '');
+                for (var i in NextButtons) {
+                    if (!NextButtons[i].hasAttribute("disabled")) {
+                        NextButtons[i].setAttribute("disabled", '');
                     }
-                });
+                }
                 // Disable next button tooltips
-                NextButtonTooltips.forEach(function (NextButtonTooltip) {
-                    if (NextButtonTooltip.classList.contains("is-active")) {
-                        NextButtonTooltip.classList.remove("is-active");
+                for (var i in NextButtonTooltips) {
+                    if (NextButtonTooltips[i].classList.contains("is-active")) {
+                        NextButtonTooltips[i].classList.remove("is-active");
                     }
-                });
+                }
             } else {
                 // Include specified number of results
                 ResultSetUB = ResultMax;
                 // Enable next buttons
-                NextButtons.forEach(function (NextButton) {
-                    if (NextButton.hasAttribute("disabled")) {
-                        NextButton.removeAttribute("disabled");
+                for (var i in NextButtons) {
+                    if (NextButtons[i].hasAttribute("disabled")) {
+                        NextButtons[i].removeAttribute("disabled");
                     }
-                });
+                }
             }
             // Begin requesting results
             Results_Request(ResultSetLB - 1);
@@ -244,11 +244,11 @@
         ResultSetLB += ResultMax;
         ResultIndex = ResultSetLB - 1;
         // Enable previous buttons
-        PreviousButtons.forEach(function (PreviousButton) {
-            if (PreviousButton.hasAttribute("disabled")) {
-                PreviousButton.removeAttribute("disabled");
+        for (var i in PreviousButtons) {
+            if (PreviousButtons[i].hasAttribute("disabled")) {
+                PreviousButtons[i].removeAttribute("disabled");
             }
-        });
+        }
         // Iterate this set of results
         Results_Iterate();
     }
@@ -265,17 +265,17 @@
         // Test whether this is first set of results
         if (ResultSetLB === 1) {
             // Disable previous buttons
-            PreviousButtons.forEach(function (PreviousButton) {
-                if (!PreviousButton.hasAttribute("disabled")) {
-                    PreviousButton.setAttribute("disabled", '');
+            for (var i in PreviousButtons) {
+                if (!PreviousButtons[i].hasAttribute("disabled")) {
+                    PreviousButtons[i].setAttribute("disabled", '');
                 }
-            });
+            }
             // Disable previous button tooltips
-            PreviousButtonTooltips.forEach(function (PreviousButtonTooltip) {
-                if (PreviousButtonTooltip.classList.contains("is-active")) {
-                    PreviousButtonTooltip.classList.remove("is-active");
+            for (var i in PreviousButtonTooltips) {
+                if (PreviousButtonTooltips[i].classList.contains("is-active")) {
+                    PreviousButtonTooltips[i].classList.remove("is-active");
                 }
-            });
+            }
         }
         // Iterate this set of results
         Results_Iterate();
@@ -283,7 +283,7 @@
 
     // Request specified result from server
     function Results_Request(Index) {
-        Document_Load(Recipes_Search[Index][Dim_RecipesData_ResultURL], Results_RetrieveText);
+        Document_Load(Recipes_Search[Index][Dim_Recipes_ResultURL], Results_RetrieveText);
     }
 
     // Retrieve result text
@@ -292,9 +292,9 @@
         // Test whether all results retrieved
         if (++ResultIndex === ResultSetUB) {
             // Update result indices
-            ResultIndices.forEach(function (ResultIndex) {
-                ResultIndex.innerHTML = ResultSetLB + " to " + ResultSetUB + " of " + ResultTotal;
-            });
+            for (var i in ResultIndices) {
+                ResultIndices[i].innerHTML = ResultSetLB + " to " + ResultSetUB + " of " + ResultTotal;
+            }
             // Post result text to result area
             Results_DisplayText(ResultText);
         } else {
@@ -312,37 +312,37 @@
         // Test whether filters are active
         if (Filters.length) {
             // Apply each filter
-            Filters.forEach(function (Filter) {
+            for (var i in Filters) {
                 // Test filter subject
-                switch (Filter[0]) {
+                switch (Filters[i][0]) {
                     case FilterSubject_Tag:
-                        for (var i = 0; i < Recipes_Filter.length; i++) {
+                        for (var j = 0; j < Recipes_Filter.length; j++) {
                             // Test whether recipe tags contain filter tag
                             var ContainsTag = false;
-                            Recipes_Filter[i][Dim_RecipesData_Tags].forEach(function (RecipeTag) {
-                                if (RecipeTag === Filter[1]) {
+                            for (var k in Recipes_Filter[j][Dim_Recipes_Tags]) {
+                                if (Recipes_Filter[j][Dim_Recipes_Tags][k] === Filters[i][1]) {
                                     ContainsTag = true;
                                 }
-                            });
+                            }
                             if (!ContainsTag) {
                                 // Remove recipe from filter recipes
-                                Recipes_Filter.splice(i, 1);
-                                i--;
+                                Recipes_Filter.splice(j, 1);
+                                j--;
                             }
                         }
                         break;
                     case FilterSubject_Time:
-                        for (var i = 0; i < Recipes_Filter.length; i++) {
+                        for (var j = 0; j < Recipes_Filter.length; j++) {
                             // Test whether recipe time exceeds filter time
-                            if (Recipes_Filter[i][Dim_RecipesData_Time] > Filter[1]) {
+                            if (Recipes_Filter[j][Dim_Recipes_Time] > Filters[i][1]) {
                                 // Remove recipe from filter recipes
-                                Recipes_Filter.splice(i, 1);
-                                i--;
+                                Recipes_Filter.splice(j, 1);
+                                j--;
                             }
                         }
                         break;
                 }
-            });
+            }
         }
         // Test whether search query contains search items
         var SearchQuery = SearchField.value.trim().toLowerCase();
@@ -351,21 +351,21 @@
             var SearchItems = SearchQuery.split(RegExp_NonWordCharacters);
             // Assign each recipe weighted score of matched search items
             var SearchRankings = [];
-            Recipes_Filter.forEach(function (RecipeData) {
+            for (var i in Recipes_Filter) {
                 var Count = 0;
-                SearchItems.forEach(function (SearchItem) {
-                    Count += Search_ReturnScore(RecipeData[Dim_RecipesData_Body], SearchItem);
-                });
-                SearchRankings.push([RecipeData, Count]);
-            });
+                for (var j in SearchItems) {
+                    Count += Search_ReturnScore(Recipes_Filter[i][Dim_Recipes_Body], SearchItems[j]);
+                }
+                SearchRankings.push([Recipes_Filter[i], Count]);
+            }
             // Sort search rankings by score descending
             SearchRankings.sort(Search_SortRankings);
             // Save matched recipes
-            SearchRankings.forEach(function (SearchRanking) {
-                if (SearchRanking[1]) {
-                    Recipes_Search.push(SearchRanking[0]);
+            for (var i in SearchRankings) {
+                if (SearchRankings[i][1]) {
+                    Recipes_Search.push(SearchRankings[i][0]);
                 }
-            });
+            }
         } else {
             // Copy filter recipes to search recipes
             Recipes_Search = Recipes_Filter.slice(0);
