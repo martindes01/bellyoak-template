@@ -15,7 +15,7 @@
     // Event listeners
     if (document.addEventListener) {
         // Print buttons - Open document print dialog on click
-        for (var i in PrintButtons) {
+        for (var i = 0, length = PrintButtons.length; i < length; i++) {
             PrintButtons[i].addEventListener("click", function () { window.print(); }, false);
         }
         // Servings field - Calculate ingredient quantities on value change
@@ -23,7 +23,7 @@
     } else if (document.attachEvent) {
         // Support for Internet Explorer
         // Print buttons - Open document print dialog on click
-        for (var i in PrintButtons) {
+        for (var i = 0, length = PrintButtons.length; i < length; i++) {
             PrintButtons[i].attachEvent("onclick", function () { window.print(); });
         }
         // Servings field - Calculate ingredient quantities on value change
@@ -38,7 +38,7 @@
             Snackbar.MaterialSnackbar.showSnackbar({ message: "Showing quantities for " + Servings + " servings." });
             var Ingredients = document.querySelectorAll(".site-js-ingredient");
             //Ingredients.forEach(function (Ingredient) {
-            for (var i in Ingredients) {
+            for (var i = 0, length = Ingredients.length; i < length; i++) {
                 // Test whether ingredient quantity is dynamic
                 if (Ingredients[i].hasAttribute("data-ingredient-specific-quantity")) {
                     var IngredientQuantity = Ingredients[i].getAttribute("data-ingredient-specific-quantity") * Servings;

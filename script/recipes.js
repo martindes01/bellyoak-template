@@ -50,15 +50,15 @@
     // Event listeners
     if (document.addEventListener) {
         // Filter chips - Toggle filter on click
-        for (var i in FilterChips) {
+        for (var i = 0, length = FilterChips.length; i < length; i++) {
             FilterChips[i].addEventListener("click", Search_ToggleFilter, false);
         }
         // Next buttons - Show next set of results on click
-        for (var i in NextButtons) {
+        for (var i = 0, length = NextButtons.length; i < length; i++) {
             NextButtons[i].addEventListener("click", Results_IterateNext, false);
         }
         // Previous buttons - Show previous set of results on click
-        for (var i in PreviousButtons) {
+        for (var i = 0, length = PreviousButtons.length; i < length; i++) {
             PreviousButtons[i].addEventListener("click", Results_IteratePrevious, false);
         }
         // Search button - Initiate search on click
@@ -66,15 +66,15 @@
     } else if (document.attachEvent) {
         // Support for Internet Explorer
         // Filter chips - Toggle filter on click
-        for (var i in FilterChips) {
+        for (var i = 0, length = FilterChips.length; i < length; i++) {
             FilterChips[i].attachEvent("onclick", Search_ToggleFilter);
         }
         // Next buttons - Show next set of results on click
-        for (var i in NextButtons) {
+        for (var i = 0, length = NextButtons.length; i < length; i++) {
             NextButtons[i].attachEvent("onclick", Results_IterateNext);
         }
         // Previous buttons - Show previous set of results on click
-        for (var i in PreviousButtons) {
+        for (var i = 0, length = PreviousButtons.length; i < length; i++) {
             PreviousButtons[i].attachEvent("onclick", Results_IteratePrevious);
         }
         // Search button - Initiate search on click
@@ -104,7 +104,7 @@
         if (!ResultContainer.classList.contains("hidden")) {
             ResultContainer.classList.add("hidden");
         }
-        for (var i in ResultIndices) {
+        for (var i = 0, length = ResultIndices.length; i < length; i++) {
             ResultIndices[i].innerHTML = '';
         }
         if (ResultPlaceholder.classList.contains("hidden")) {
@@ -131,12 +131,12 @@
     // Reset elements and variables
     function Reset_OnSearch() {
         // Reset elements
-        for (var i in PreviousButtons) {
+        for (var i = 0, length = PreviousButtons.length; i < length; i++) {
             if (!PreviousButtons[i].hasAttribute("disabled")) {
                 PreviousButtons[i].setAttribute("disabled", '');
             }
         }
-        for (var i in PreviousButtonTooltips) {
+        for (var i = 0, length = PreviousButtonTooltips.length; i < length; i++) {
             if (PreviousButtonTooltips[i].classList.contains("is-active")) {
                 PreviousButtonTooltips[i].classList.remove("is-active");
             }
@@ -206,13 +206,13 @@
                 // Include all remaining results
                 ResultSetUB = ResultTotal;
                 // Disable next buttons
-                for (var i in NextButtons) {
+                for (var i = 0, length = NextButtons.length; i < length; i++) {
                     if (!NextButtons[i].hasAttribute("disabled")) {
                         NextButtons[i].setAttribute("disabled", '');
                     }
                 }
                 // Disable next button tooltips
-                for (var i in NextButtonTooltips) {
+                for (var i = 0, length = NextButtonTooltips.length; i < length; i++) {
                     if (NextButtonTooltips[i].classList.contains("is-active")) {
                         NextButtonTooltips[i].classList.remove("is-active");
                     }
@@ -221,7 +221,7 @@
                 // Include specified number of results
                 ResultSetUB = ResultMax;
                 // Enable next buttons
-                for (var i in NextButtons) {
+                for (var i = 0, length = NextButtons.length; i < length; i++) {
                     if (NextButtons[i].hasAttribute("disabled")) {
                         NextButtons[i].removeAttribute("disabled");
                     }
@@ -244,7 +244,7 @@
         ResultSetLB += ResultMax;
         ResultIndex = ResultSetLB - 1;
         // Enable previous buttons
-        for (var i in PreviousButtons) {
+        for (var i = 0, length = PreviousButtons.length; i < length; i++) {
             if (PreviousButtons[i].hasAttribute("disabled")) {
                 PreviousButtons[i].removeAttribute("disabled");
             }
@@ -265,13 +265,13 @@
         // Test whether this is first set of results
         if (ResultSetLB === 1) {
             // Disable previous buttons
-            for (var i in PreviousButtons) {
+            for (var i = 0, length = PreviousButtons.length; i < length; i++) {
                 if (!PreviousButtons[i].hasAttribute("disabled")) {
                     PreviousButtons[i].setAttribute("disabled", '');
                 }
             }
             // Disable previous button tooltips
-            for (var i in PreviousButtonTooltips) {
+            for (var i = 0, length = PreviousButtonTooltips.length; i < length; i++) {
                 if (PreviousButtonTooltips[i].classList.contains("is-active")) {
                     PreviousButtonTooltips[i].classList.remove("is-active");
                 }
@@ -292,7 +292,7 @@
         // Test whether all results retrieved
         if (++ResultIndex === ResultSetUB) {
             // Update result indices
-            for (var i in ResultIndices) {
+            for (var i = 0, length = ResultIndices.length; i < length; i++) {
                 ResultIndices[i].innerHTML = ResultSetLB + " to " + ResultSetUB + " of " + ResultTotal;
             }
             // Post result text to result area
