@@ -1,10 +1,14 @@
 // Designed to work alongside Material Design Lite v1.3.0
 
 (function () {
+    // Development
+    window.alert("recipe-x.js - Commit 43");
+
     // Private constants
     const RegExp_PositiveInteger = /^(\s*[0]*[1-9]+[0-9]*\s*)$/;
 
     // Private variables - Elements
+    var Ingredients = document.querySelectorAll(".site-js-ingredient");
     var PrintButtons = document.querySelectorAll(".site-js-print-button");
     var ServingsField = document.getElementById("servings-field");
     var Snackbar = document.querySelector(".mdl-js-snackbar");
@@ -36,8 +40,6 @@
         if (RegExp_PositiveInteger.test(ServingsField.value)) {
             Servings = ServingsField.value.trim();
             Snackbar.MaterialSnackbar.showSnackbar({ message: "Showing quantities for " + Servings + " servings." });
-            var Ingredients = document.querySelectorAll(".site-js-ingredient");
-            //Ingredients.forEach(function (Ingredient) {
             for (var i = 0, length = Ingredients.length; i < length; i++) {
                 // Test whether ingredient quantity is dynamic
                 if (Ingredients[i].hasAttribute("data-ingredient-specific-quantity")) {
@@ -86,7 +88,6 @@
                     // Display updated ingredient quantity
                     Ingredients[i].querySelector(".site-js-ingredient__quantity").innerHTML = IngredientQuantity;
                 }
-            //});
             }
         } else {
             Snackbar.MaterialSnackbar.showSnackbar({ message: "Invalid input.\u00A0\u00A0Showing quantities for " + Servings + " servings." });

@@ -1,6 +1,9 @@
 // Designed to work alongside Material Design Lite v1.3.0
 
 (function () {
+    // Development
+    window.alert("recipe-x.js - Commit 43");
+
     // Private constants
     const Delimiter_Tags = ',';
     const Dim_Recipes_Body = 1;
@@ -434,7 +437,8 @@
                 }
             }
             // Remove active filter chip classes from element and children
-            this.classList.remove("mdl-button--primary", "mdl-button--raised");
+            this.classList.remove("mdl-button--primary");
+            this.classList.remove("mdl-button--raised");
             if (this.querySelector(".mdl-chip__action")) {
                 this.querySelector(".mdl-chip__action").classList.remove("mdl-color-text--primary-contrast");
             }
@@ -450,7 +454,8 @@
             // Remove inactive filter chip classes
             this.classList.remove("des-color-text--surface-contrast");
             // Add active filter chip classes to element and children
-            this.classList.add("mdl-button--primary", "mdl-button--raised");
+            this.classList.add("mdl-button--primary");
+            this.classList.add("mdl-button--raised");
             if (this.querySelector(".mdl-chip__action")) {
                 this.querySelector(".mdl-chip__action").classList.add("mdl-color-text--primary-contrast");
             }
@@ -465,17 +470,14 @@
         // Retrieve text content of nodes at specified path
         if (ContextNode.evaluate) {
             var Nodes = ContextNode.evaluate(NodePath, ContextNode, null, XPathResult.ANY_TYPE, null);
-            var NextNode = Nodes.iterateNext();
-            while (NextNode) {
+            while (NextNode = Nodes.iterateNext()) {
                 TextValues.push(NextNode.textContent);
-                NextNode = Nodes.iterateNext();
             }
         } else if (window.ActiveXObject || Request.responseType === "msxml-document") {
             // Support for Internet Explorer
             ContextNode.setProperty("SelectionLanguage", "XPath");
             var Nodes = ContextNode.selectNodes(NodePath);
-            var NodesLength = Nodes.length;
-            for (var i = 0; i < NodesLength; i++) {
+            for (var i = 0, length = Nodes.length; i < length; i++) {
                 TextValues.push(Nodes[i].textContent);
             }
         }
