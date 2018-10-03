@@ -2,29 +2,30 @@
 
 (function () {
     // Development
-    window.alert("recipe-x.js - Commit 43");
+    window.alert("recipe-x.js - Commit 44");
 
     // Private constants
-    const Delimiter_Tags = ',';
-    const Dim_Recipes_Body = 1;
-    const Dim_Recipes_Date = 2;
-    const Dim_Recipes_ResultURL = 0;
-    const Dim_Recipes_Tags = 3;
-    const Dim_Recipes_Time = 4;
-    const FilterSubject_Tag = "tag";
-    const FilterSubject_Time = "time";
-    const NodePath_Body = "//body";
-    const NodePath_Date = "//head/meta[@name=\"date\"]/@content";
-    const NodePath_ResultURL = "//head/link[@rel=\"result-url\"]/@href";
-    const NodePath_Tags = "//head/meta[@name=\"tags\"]/@content";
-    const NodePath_Time = "//head/meta[@name=\"time\"]/@content";
-    const Path_RecipesXML = "recipes.xml";
-    const RegExp_NonWordCharacters = /\W+/;
-    const ResultMax = 5;
-    const SearchScore_End = 0.4;
-    const SearchScore_Middle = 0.2;
-    const SearchScore_Span = 1;
-    const SearchScore_Start = 0.7;
+    // ECMAScript 6 const keyword not used due to compatibility
+    var Delimiter_Tags = ',';
+    var Dim_Recipes_Body = 1;
+    //var Dim_Recipes_Date = 2;
+    var Dim_Recipes_ResultURL = 0;
+    var Dim_Recipes_Tags = 3;
+    var Dim_Recipes_Time = 4;
+    var FilterSubject_Tag = "tag";
+    var FilterSubject_Time = "time";
+    var NodePath_Body = "//body";
+    var NodePath_Date = "//head/meta[@name=\"date\"]/@content";
+    var NodePath_ResultURL = "//head/link[@rel=\"result-url\"]/@href";
+    var NodePath_Tags = "//head/meta[@name=\"tags\"]/@content";
+    var NodePath_Time = "//head/meta[@name=\"time\"]/@content";
+    var Path_RecipesXML = "recipes.xml";
+    var RegExp_NonWordCharacters = /\W+/;
+    var ResultMax = 5;
+    var SearchScore_End = 0.4;
+    var SearchScore_Middle = 0.2;
+    var SearchScore_Span = 1;
+    var SearchScore_Start = 0.7;
 
     // Private variables - Elements
     var FilterChips = document.querySelectorAll(".site-js-filter-chip");
@@ -104,6 +105,11 @@
 
     function Reset_OnIterate() {
         // Reset elements
+        for (var i = 0, length = FilterChips.length; i < length; i++) {
+            if (!FilterChips[i].hasAttribute("disabled")) {
+                FilterChips[i].setAttribute("disabled", '');
+            }
+        }
         if (!ResultContainer.classList.contains("hidden")) {
             ResultContainer.classList.add("hidden");
         }
@@ -161,6 +167,10 @@
         // Replace result placeholder with result container
         ResultContainer.classList.remove("hidden");
         ResultPlaceholder.classList.add("hidden");
+        // Enable filter chips
+        for (var i = 0, length = FilterChips.length; i < length; i++) {
+            FilterChips[i].removeAttribute("disabled");
+        }
         // Enable search button
         SearchButton.removeAttribute("disabled");
         // Add event listener to search field - Initiate search on enter key press
@@ -188,9 +198,13 @@
         var RecipesXML = Request.responseXML;
         // Save data for each recipe
         var Dates = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Date);
-        var Bodies = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Body).map(Body => Body.toLowerCase());
+        var Bodies = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Body).map(function (Body) {
+            return Body.toLowerCase();
+        });
         var ResultURLs = XML_RetrieveTextContent(Request, RecipesXML, NodePath_ResultURL);
-        var Tags = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Tags).map(Tags => Tags.toLowerCase().split(Delimiter_Tags));
+        var Tags = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Tags).map(function (Tags) {
+            return Tags.toLowerCase().split(Delimiter_Tags);
+        });
         var Times = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Time);
         for (var i in ResultURLs) {
             Recipes_All.push([ResultURLs[i], Bodies[i], Dates[i], Tags[i], Times[i]]);
@@ -470,8 +484,10 @@
         // Retrieve text content of nodes at specified path
         if (ContextNode.evaluate) {
             var Nodes = ContextNode.evaluate(NodePath, ContextNode, null, XPathResult.ANY_TYPE, null);
-            while (NextNode = Nodes.iterateNext()) {
+            var NextNode = Nodes.iterateNext();
+            while (NextNode) {
                 TextValues.push(NextNode.textContent);
+                NextNode = Nodes.iterateNext();
             }
         } else if (window.ActiveXObject || Request.responseType === "msxml-document") {
             // Support for Internet Explorer

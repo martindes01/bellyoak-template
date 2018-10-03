@@ -2,10 +2,11 @@
 
 (function () {
     // Development
-    window.alert("recipe-x.js - Commit 43");
+    window.alert("recipe-x.js - Commit 44");
 
     // Private constants
-    const RegExp_PositiveInteger = /^(\s*[0]*[1-9]+[0-9]*\s*)$/;
+    // ECMAScript 6 const keyword not used due to compatibility
+    var RegExp_PositiveInteger = /^(\s*[0]*[1-9]+[0-9]*\s*)$/;
 
     // Private variables - Elements
     var Ingredients = document.querySelectorAll(".site-js-ingredient");
@@ -48,36 +49,31 @@
                     if (Ingredients[i].hasAttribute("data-ingredient-basic-unit")) {
                         var IngredientBasicUnit = Ingredients[i].getAttribute("data-ingredient-basic-unit");
                         // Initialise unit prefix as necessary
+                        var IngredientUnitPrefix = '';
                         if (IngredientQuantity < 1) {
                             IngredientQuantity *= 1000;
-                            var IngredientUnitPrefix = 'm';
+                            IngredientUnitPrefix = 'm';
                             if (IngredientBasicUnit === 'l') {
                                 if (IngredientQuantity < 15) {
                                     IngredientQuantity /= 5;
                                     IngredientBasicUnit = "tsp";
-                                    IngredientUnitPrefix = '';
                                 } else if (IngredientQuantity < 100) {
                                     IngredientQuantity /= 15;
                                     IngredientBasicUnit = "tbsp";
-                                    IngredientUnitPrefix = '';
                                 }
                             }
-                        } else if (IngredientQuantity < 1000) {
-                            var IngredientUnitPrefix = '';
-                        } else if (IngredientQuantity < 1000000) {
+                        } else if (IngredientQuantity >= 1000 && IngredientQuantity < 1000000) {
                             IngredientQuantity /= 1000;
-                            var IngredientUnitPrefix = 'k';
+                            IngredientUnitPrefix = 'k';
                         } else if (IngredientQuantity < 1000000000) {
                             IngredientQuantity /= 1000000;
-                            var IngredientUnitPrefix = 'M';
+                            IngredientUnitPrefix = 'M';
                         } else if (IngredientQuantity < 1000000000000) {
                             IngredientQuantity /= 1000000000;
-                            var IngredientUnitPrefix = 'G';
+                            IngredientUnitPrefix = 'G';
                         } else if (IngredientQuantity < 1000000000000000) {
                             IngredientQuantity /= 1000000000000;
-                            var IngredientUnitPrefix = 'T';
-                        } else {
-                            var IngredientUnitPrefix = '';
+                            IngredientUnitPrefix = 'T';
                         }
                         IngredientQuantity = IngredientQuantity.toPrecision(3);
                         // Display updated ingredient unit
