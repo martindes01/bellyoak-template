@@ -2,11 +2,11 @@
 
 (function () {
     // Development
-    window.alert("recipe-x.js - Commit 45");
+    document.getElementById("dev").innerHTML += "<span>recipes.js - Commit 46</span>";
 
-    // Private constants
-    // ECMAScript 6 const keyword not used due to compatibility
+    // Private constants (ES6 const keyword lacks support)
     var Delimiter_Tags = ',';
+    var ErrorEmojis = ["\\(o_o)/", "(;-;)", "(>_<)", "(._.)", "(^.^)"];
     var FilterSubject_Tag = "tag";
     var FilterSubject_Time = "time";
     var NodeInfo_Body = { Path: "body", Attribute: false, Dimension: 1 };
@@ -23,6 +23,12 @@
     var SearchScore_Start = 0.7;
 
     // Private variables - Elements
+    var Error_4xx = document.getElementById("error-4xx");
+    var Error_4xx_Code = document.getElementById("error-4xx-code");
+    var Error_NoResult = document.getElementById("error-no-result");
+    var Error_Other = document.getElementById("error-other");
+    var ErrorContainer = document.getElementById("error-container");
+    var ErrorEmoji = document.getElementById("error-emoji");
     var FilterChips = document.querySelectorAll(".site-js-filter-chip");
     var NextButtons = document.querySelectorAll(".site-js-next-button");
     var NextButtonTooltips = document.querySelectorAll(".site-js-next-button-tooltip");
@@ -37,6 +43,7 @@
     var SearchField = document.getElementById("search-field");
 
     // Private variables - Values
+    var ErrorEmojisIndex = 0;
     var Filters = [];
     var Recipes_All = [];
     var Recipes_Search = [];
@@ -89,8 +96,25 @@
         var Request = new XMLHttpRequest();
         // Define function to handle response
         Request.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                CallbackFunction(this);
+            // Check whether request is complete
+            if (this.readyState === 4) {
+                // Check whether request has succeeded
+                if (this.status === 200) {
+                    // Pass response to callback function
+                    CallbackFunction(this);
+                } else {
+                    // Test whether client error
+                    if (this.status >= 400 && this.status < 500) {
+                        // Select client error message
+                        Error_4xx_Code.innerHTML = this.status;
+                        Error_4xx.classList.remove("hidden");
+                    } else {
+                        // Select other error message
+                        Error_Other.classList.remove("hidden");
+                    }
+                    // Display error message
+                    Results_DisplayError();
+                }
             }
         };
         // Send request for file
@@ -98,12 +122,52 @@
         Request.send();
     }
 
+    // Enable elements after text displayed
+    function Enable_OnDisplay() {
+        // Enable filter chips
+        for (var i = 0, length = FilterChips.length; i < length; i++) {
+            FilterChips[i].removeAttribute("disabled");
+        }
+        // Enable search button
+        SearchButton.removeAttribute("disabled");
+        // Add event listener to search field - Initiate search on enter key press
+        if (document.addEventListener) {
+            SearchField.addEventListener("keypress", Listener_SearchFieldKeyPress = function (e) {
+                // Test whether enter key was pressed
+                if (e.key === "Enter") {
+                    Search_Initiate();
+                }
+            }, false);
+        } else if (document.attachEvent) {
+            // Support for Internet Explorer
+            SearchField.attachEvent("onkeypress", Listener_SearchFieldKeyPress = function () {
+                // Test whether enter key was pressed
+                if (window.event.key === "Enter") {
+                    Search_Initiate();
+                }
+            });
+        }
+    }
+
+    // Reset elements and variables on iterate
     function Reset_OnIterate() {
         // Reset elements
         for (var i = 0, length = FilterChips.length; i < length; i++) {
             if (!FilterChips[i].hasAttribute("disabled")) {
                 FilterChips[i].setAttribute("disabled", '');
             }
+        }
+        if (!Error_4xx.classList.contains("hidden")) {
+            Error_4xx.classList.add("hidden");
+        }
+        if (!Error_NoResult.classList.contains("hidden")) {
+            Error_NoResult.classList.add("hidden");
+        }
+        if (!Error_Other.classList.contains("hidden")) {
+            Error_Other.classList.add("hidden");
+        }
+        if (!ErrorContainer.classList.contains("hidden")) {
+            ErrorContainer.classList.add("hidden");
         }
         if (!ResultContainer.classList.contains("hidden")) {
             ResultContainer.classList.add("hidden");
@@ -132,7 +196,7 @@
         ResultText = '';
     }
 
-    // Reset elements and variables
+    // Reset elements and variables on search
     function Reset_OnSearch() {
         // Reset elements
         for (var i = 0, length = PreviousButtons.length; i < length; i++) {
@@ -154,6 +218,23 @@
         Reset_OnIterate();
     }
 
+    // Display error message
+    function Results_DisplayError() {
+        // Increment error emoji
+        if (++ErrorEmojisIndex >= ErrorEmojis.length) {
+            ErrorEmojisIndex = 0;
+        }
+        ErrorEmoji.innerHTML = ErrorEmojis[ErrorEmojisIndex];
+        // Replace result placeholder with error container
+        ErrorContainer.classList.remove("hidden");
+        ResultPlaceholder.classList.add("hidden");
+        // Test whether saved recipe data exists
+        if (Recipes_All.length) {
+            // Enable search and result area elements
+            Enable_OnDisplay();
+        }
+    }
+
     // Display search results
     function Results_DisplayText(Text) {
         // Post text to result area and upgrade any HTML elements with MDL classes
@@ -162,29 +243,8 @@
         // Replace result placeholder with result container
         ResultContainer.classList.remove("hidden");
         ResultPlaceholder.classList.add("hidden");
-        // Enable filter chips
-        for (var i = 0, length = FilterChips.length; i < length; i++) {
-            FilterChips[i].removeAttribute("disabled");
-        }
-        // Enable search button
-        SearchButton.removeAttribute("disabled");
-        // Add event listener to search field - Initiate search on enter key press
-        if (document.addEventListener) {
-            SearchField.addEventListener("keypress", Listener_SearchFieldKeyPress = function (e) {
-                // Test whether enter key was pressed
-                if (e.key === "Enter") {
-                    Search_Initiate();
-                }
-            }, false);
-        } else if (document.attachEvent) {
-            // Support for Internet Explorer
-            SearchField.attachEvent("onkeypress", Listener_SearchFieldKeyPress = function () {
-                // Test whether enter key was pressed
-                if (window.event.key === "Enter") {
-                    Search_Initiate();
-                }
-            });
-        }
+        // Enable search and result area elements
+        Enable_OnDisplay();
     }
 
     // Initialise result area
@@ -242,7 +302,10 @@
             // Begin requesting results
             Results_Request(ResultSetLB - 1);
         } else {
-            Results_DisplayText("No matches (._.)");
+            // Select no result error message
+            Error_NoResult.classList.remove("hidden");
+            // Display error message
+            Results_DisplayError();
         }
     }
 

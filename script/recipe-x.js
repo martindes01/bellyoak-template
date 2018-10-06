@@ -2,10 +2,9 @@
 
 (function () {
     // Development
-    window.alert("recipe-x.js - Commit 44");
+    document.getElementById("dev").innerHTML += "<span>recipe-x.js - Commit 46</span>";
 
-    // Private constants
-    // ECMAScript 6 const keyword not used due to compatibility
+    // Private constants (ES6 const keyword lacks support)
     var RegExp_PositiveInteger = /^(\s*[0]*[1-9]+[0-9]*\s*)$/;
 
     // Private variables - Elements
