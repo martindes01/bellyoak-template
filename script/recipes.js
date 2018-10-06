@@ -2,23 +2,18 @@
 
 (function () {
     // Development
-    window.alert("recipe-x.js - Commit 44");
+    window.alert("recipe-x.js - Commit 45");
 
     // Private constants
     // ECMAScript 6 const keyword not used due to compatibility
     var Delimiter_Tags = ',';
-    var Dim_Recipes_Body = 1;
-    //var Dim_Recipes_Date = 2;
-    var Dim_Recipes_ResultURL = 0;
-    var Dim_Recipes_Tags = 3;
-    var Dim_Recipes_Time = 4;
     var FilterSubject_Tag = "tag";
     var FilterSubject_Time = "time";
-    var NodePath_Body = "//body";
-    var NodePath_Date = "//head/meta[@name=\"date\"]/@content";
-    var NodePath_ResultURL = "//head/link[@rel=\"result-url\"]/@href";
-    var NodePath_Tags = "//head/meta[@name=\"tags\"]/@content";
-    var NodePath_Time = "//head/meta[@name=\"time\"]/@content";
+    var NodeInfo_Body = { Path: "body", Attribute: false, Dimension: 1 };
+    var NodeInfo_Date = { Path: "head meta[name=\"date\"]", Attribute: "content", Dimension: 2 };
+    var NodeInfo_ResultURL = { Path: "head link[rel=\"result-url\"]", Attribute: "href", Dimension: 0 };
+    var NodeInfo_Tags = { Path: "head meta[name=\"tags\"]", Attribute: "content", Dimension: 3 };
+    var NodeInfo_Time = { Path: "head meta[name=\"time\"]", Attribute: "content", Dimension: 4 };
     var Path_RecipesXML = "recipes.xml";
     var RegExp_NonWordCharacters = /\W+/;
     var ResultMax = 5;
@@ -197,15 +192,15 @@
         // Store recipes XML document
         var RecipesXML = Request.responseXML;
         // Save data for each recipe
-        var Dates = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Date);
-        var Bodies = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Body).map(function (Body) {
+        var Bodies = XML_RetrieveTextContent(RecipesXML, NodeInfo_Body).map(function (Body) {
             return Body.toLowerCase();
         });
-        var ResultURLs = XML_RetrieveTextContent(Request, RecipesXML, NodePath_ResultURL);
-        var Tags = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Tags).map(function (Tags) {
+        var Dates = XML_RetrieveTextContent(RecipesXML, NodeInfo_Date);
+        var ResultURLs = XML_RetrieveTextContent(RecipesXML, NodeInfo_ResultURL);
+        var Tags = XML_RetrieveTextContent(RecipesXML, NodeInfo_Tags).map(function (Tags) {
             return Tags.toLowerCase().split(Delimiter_Tags);
         });
-        var Times = XML_RetrieveTextContent(Request, RecipesXML, NodePath_Time);
+        var Times = XML_RetrieveTextContent(RecipesXML, NodeInfo_Time);
         for (var i in ResultURLs) {
             Recipes_All.push([ResultURLs[i], Bodies[i], Dates[i], Tags[i], Times[i]]);
         }
@@ -300,7 +295,7 @@
 
     // Request specified result from server
     function Results_Request(Index) {
-        Document_Load(Recipes_Search[Index][Dim_Recipes_ResultURL], Results_RetrieveText);
+        Document_Load(Recipes_Search[Index][NodeInfo_ResultURL.Dimension], Results_RetrieveText);
     }
 
     // Retrieve result text
@@ -336,8 +331,8 @@
                         for (var j = 0; j < Recipes_Filter.length; j++) {
                             // Test whether recipe tags contain filter tag
                             var ContainsTag = false;
-                            for (var k in Recipes_Filter[j][Dim_Recipes_Tags]) {
-                                if (Recipes_Filter[j][Dim_Recipes_Tags][k] === Filters[i][1]) {
+                            for (var k in Recipes_Filter[j][NodeInfo_Tags.Dimension]) {
+                                if (Recipes_Filter[j][NodeInfo_Tags.Dimension][k] === Filters[i][1]) {
                                     ContainsTag = true;
                                 }
                             }
@@ -351,7 +346,7 @@
                     case FilterSubject_Time:
                         for (var j = 0; j < Recipes_Filter.length; j++) {
                             // Test whether recipe time exceeds filter time
-                            if (Recipes_Filter[j][Dim_Recipes_Time] > Filters[i][1]) {
+                            if (Recipes_Filter[j][NodeInfo_Time.Dimension] > Filters[i][1]) {
                                 // Remove recipe from filter recipes
                                 Recipes_Filter.splice(j, 1);
                                 j--;
@@ -371,7 +366,7 @@
             for (var i in Recipes_Filter) {
                 var Count = 0;
                 for (var j in SearchItems) {
-                    Count += Search_ReturnScore(Recipes_Filter[i][Dim_Recipes_Body], SearchItems[j]);
+                    Count += Search_ReturnScore(Recipes_Filter[i][NodeInfo_Body.Dimension], SearchItems[j]);
                 }
                 SearchRankings.push([Recipes_Filter[i], Count]);
             }
@@ -479,20 +474,20 @@
     }
 
     // Retrieve text content of nodes at specified path
-    function XML_RetrieveTextContent(Request, ContextNode, NodePath) {
+    function XML_RetrieveTextContent(ContextNode, NodeInfo) {
         var TextValues = [];
-        // Retrieve text content of nodes at specified path
-        if (ContextNode.evaluate) {
-            var Nodes = ContextNode.evaluate(NodePath, ContextNode, null, XPathResult.ANY_TYPE, null);
-            var NextNode = Nodes.iterateNext();
-            while (NextNode) {
-                TextValues.push(NextNode.textContent);
-                NextNode = Nodes.iterateNext();
+        // Retrieve nodes at specified path
+        var Nodes = ContextNode.querySelectorAll(NodeInfo.Path);
+        // Test whether attribute value specified
+        if (NodeInfo.Attribute) {
+            // Retrieve specified attribute value
+            for (var i = 0, length = Nodes.length; i < length; i++) {
+                if (Nodes[i].hasAttribute(NodeInfo.Attribute)) {
+                    TextValues.push(Nodes[i].getAttribute(NodeInfo.Attribute));
+                }
             }
-        } else if (window.ActiveXObject || Request.responseType === "msxml-document") {
-            // Support for Internet Explorer
-            ContextNode.setProperty("SelectionLanguage", "XPath");
-            var Nodes = ContextNode.selectNodes(NodePath);
+        } else {
+            // Retrieve text content
             for (var i = 0, length = Nodes.length; i < length; i++) {
                 TextValues.push(Nodes[i].textContent);
             }
