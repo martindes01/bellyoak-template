@@ -12,7 +12,7 @@
     <!-- Manifest -->
     <link rel="manifest" href="/site.webmanifest" />
     <!-- Styles (Reference) -->
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css" />
+    <link rel="stylesheet" href="style/material.blue-pink.edited.min.css" /> <!-- Edited -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:500" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
@@ -59,7 +59,7 @@
                 <a class="mdl-navigation__link des-color-text--surface-contrast des-opacity--opaque des-typography--body-1 site-typography--body-font" href="index.html#support-us">Support us</a>
             </nav>
             <div class="mdl-navigation des-color-text--surface-contrast des-opacity--disabled des-typography--caption site-typography--body-font" id="dev" style="bottom: 0; position: absolute;">
-                <span>recipe-1.html - Commit 46</span>
+                <span>recipe-1.html - Commit 47</span>
             </div>
         </div>
         <main class="mdl-layout__content des-color--background">
@@ -68,8 +68,8 @@
                 <button class="mdl-snackbar__action" type="button"></button>
             </div>
             <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--hide-phone mdl-cell--hide-tablet mdl-cell--2-col-desktop"></div> <!-- hide-phone, hide-tablet, 2c-desktop -->
-                <div class="mdl-cell mdl-cell--8-col mdl-list__item des-grid__header">
+                <div class="mdl-cell mdl-cell--hide-phone mdl-cell--hide-tablet mdl-cell--2-col-desktop site-no-print"></div> <!-- hide-phone, hide-tablet, 2c-desktop -->
+                <div class="mdl-cell mdl-cell--8-col mdl-list__item des-grid__header site-cell--12-col-print">
                     <!-- 4c-phone, 8c-tablet, 8c-desktop -->
                     <span class="mdl-list__item-primary-content">
                         <span class="des-color-text--background-contrast des-typography--h5 site-typography--title-font">What's cookin'?</span>
@@ -81,14 +81,14 @@
                         <span class="mdl-tooltip des-typography--body-2 site-tooltip site-typography--body-font" for="print-button">Print page</span>
                     </span>
                 </div>
-                <div class="mdl-cell mdl-cell--hide-phone mdl-cell--hide-tablet mdl-cell--2-col-desktop"></div> <!-- hide-phone, hide-tablet, 2c-desktop -->
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--2-col-desktop mdl-card site-card">
+                <div class="mdl-cell mdl-cell--hide-phone mdl-cell--hide-tablet mdl-cell--2-col-desktop site-no-print"></div> <!-- hide-phone, hide-tablet, 2c-desktop -->
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--2-col-desktop mdl-card site-card site-no-print">
                     <!-- 4c-phone, 8c-tablet, 2c-desktop -->
                     <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
                         <span>Advertisement</span>
                     </div>
                 </div>
-                <div class="mdl-cell mdl-cell--8-col mdl-card mdl-grid mdl-grid--no-spacing mdl-shadow--2dp site-card">
+                <div class="mdl-cell mdl-cell--8-col mdl-card mdl-grid mdl-grid--no-spacing mdl-shadow--2dp site-card site-cell--12-col-print">
                     <!-- 4c-phone, 8c-tablet, 8c-desktop -->
                     <div class="mdl-cell mdl-cell--12-col">
                         <!-- contained(1): 4c-phone, 8c-tablet, 12c-desktop -->
@@ -206,7 +206,7 @@
                         <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect site-button" href="recipes.html">More recipes</a>
                     </div>
                 </div>
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--2-col-desktop mdl-card site-card">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--2-col-desktop mdl-card site-card site-no-print">
                     <!-- 4c-phone, 8c-tablet, 2c-desktop -->
                     <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
                         <span>Advertisement</span>
@@ -214,7 +214,7 @@
                 </div>
             </div>
             <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp site-card" id="about">
+                <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp site-card site-cell--6-col-print" id="about">
                     <!-- 4c-phone, 4c-tablet, 4c-desktop -->
                     <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
                         <span>About</span>
@@ -226,7 +226,7 @@
                         <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect site-button">Learn more</a>
                     </div>
                 </div>
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--5-col-desktop mdl-card mdl-shadow--2dp site-card" id="support-us">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--5-col-desktop mdl-card mdl-shadow--2dp site-card site-cell--6-col-print" id="support-us">
                     <!-- 4c-phone, 4c-tablet, 5c-desktop -->
                     <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
                         <span>Support us (plz)</span>
@@ -276,7 +276,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--3-col-desktop mdl-card site-card">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--3-col-desktop mdl-card site-card site-no-print">
                     <!-- 4c-phone, 8c-tablet, 3c-desktop -->
                     <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
                         <span>Advertisement</span>

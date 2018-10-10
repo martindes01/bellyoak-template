@@ -12,7 +12,7 @@
     <!-- Manifest -->
     <link rel="manifest" href="/site.webmanifest" />
     <!-- Styles (Reference) -->
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css" />
+    <link rel="stylesheet" href="style/material.blue-pink.edited.min.css" /> <!-- Edited -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:500" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
@@ -57,7 +57,7 @@
                 <a class="mdl-navigation__link des-color-text--surface-contrast des-opacity--opaque des-typography--body-1 site-typography--body-font" href="#support-us">Support us</a>
             </nav>
             <div class="mdl-navigation des-color-text--surface-contrast des-opacity--disabled des-typography--caption site-typography--body-font" id="dev" style="bottom: 0; position: absolute;">
-                <span>recipes.html - Commit 46</span>
+                <span>recipes.html - Commit 47</span>
             </div>
         </div>
         <main class="mdl-layout__content des-color--background">
@@ -70,7 +70,7 @@
                 </div>
             </div>
             <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop mdl-card mdl-shadow--2dp site-card">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop mdl-card mdl-shadow--2dp site-card site-cell--12-col-print">
                     <!-- 4c-phone, 6c-tablet, 9c-desktop -->
                     <div class="mdl-card__title">
                         <span class="des-color-text--surface-contrast des-typography--h5 site-typography--title-font">Search or filter results</span>
@@ -100,13 +100,13 @@
                         </button>
                     </div>
                 </div>
-                <div class="mdl-cell mdl-cell--hide-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-card site-card">
+                <div class="mdl-cell mdl-cell--hide-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-card site-card site-no-print">
                     <!-- hide-phone, 2c-tablet, 3c-desktop -->
                     <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
                         <span>Advertisement</span>
                     </div>
                 </div>
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop mdl-card mdl-grid mdl-grid--no-spacing mdl-shadow--2dp site-card hidden" id="error-container">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop mdl-card mdl-grid mdl-grid--no-spacing mdl-shadow--2dp site-card site-cell--12-col-print hidden" id="error-container">
                     <!-- 4c-phone, 6c-tablet, 9c-desktop -->
                     <div class="mdl-cell mdl-cell--12-col">
                         <!-- contained(1): 4c-phone, 8c-tablet, 12c-desktop -->
@@ -241,13 +241,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop mdl-list__item" id="result-placeholder">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop mdl-list__item site-cell--12-col-print" id="result-placeholder">
                     <!-- 4c-phone, 6c-tablet, 9c-desktop -->
                     <span class="mdl-list__item-primary-content mdl-typography--text-center">
                         <span class="des-color-text--background-contrast des-layout--span des-opacity--active des-typography--h4 site-typography--title-font">Searching the <span class="mdl-typography--text-nowrap">Belly<span class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></span>ak</span> archives...</span>
                     </span>
                 </div>
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop mdl-grid mdl-grid--no-spacing hidden" id="result-container">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop mdl-grid mdl-grid--no-spacing site-cell--12-col-print hidden" id="result-container">
                     <!-- 4c-phone, 6c-tablet, 9c-desktop -->
                     <div class="mdl-cell mdl-cell--12-col mdl-list__item des-grid__header">
                         <!-- contained(1): 4c-phone, 8c-tablet, 12c-desktop -->
@@ -268,7 +268,7 @@
                         </span>
                     </div>
                     <div class="mdl-cell mdl-cell--12-col mdl-grid mdl-grid--no-spacing" id="result-area"></div> <!-- contained(1): 4c-phone, 8c-tablet, 12c-desktop -->
-                    <div class="mdl-cell mdl-cell--12-col mdl-card site-card">
+                    <div class="mdl-cell mdl-cell--12-col mdl-card site-card site-no-print">
                         <!-- contained(1): 4c-phone, 8c-tablet, 12c-desktop -->
                         <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
                             <span>Advertisement</span>
@@ -293,7 +293,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-card site-card">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-card site-card site-no-print">
                     <!-- 4c-phone, 2c-tablet, 3c-desktop -->
                     <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
                         <span>Advertisement</span>
@@ -301,7 +301,7 @@
                 </div>
             </div>
             <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp site-card" id="about">
+                <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp site-card site-cell--6-col-print" id="about">
                     <!-- 4c-phone, 4c-tablet, 4c-desktop -->
                     <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
                         <span>About</span>
@@ -313,7 +313,7 @@
                         <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect site-button">Learn more</a>
                     </div>
                 </div>
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--5-col-desktop mdl-card mdl-shadow--2dp site-card" id="support-us">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--5-col-desktop mdl-card mdl-shadow--2dp site-card site-cell--6-col-print" id="support-us">
                     <!-- 4c-phone, 4c-tablet, 5c-desktop -->
                     <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
                         <span>Support us (plz)</span>
@@ -363,7 +363,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--3-col-desktop mdl-card site-card">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--3-col-desktop mdl-card site-card site-no-print">
                     <!-- 4c-phone, 8c-tablet, 3c-desktop -->
                     <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
                         <span>Advertisement</span>

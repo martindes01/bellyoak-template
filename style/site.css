@@ -68,3 +68,34 @@
         border-radius: 8px !important;
     }
 }
+
+@media print {
+    * {
+        min-height: max-content;
+        page-break-inside: avoid;
+    }
+
+    footer {
+        display: none;
+    }
+
+    main [class*=color], main [style*=background] {
+        -webkit-print-color-adjust: exact !important;
+    }
+
+    .mdl-snackbar {
+        display: none !important;
+    }
+
+    .site-cell--6-col-print {
+        width: calc(50% - 16px) !important;
+    }
+
+    .site-cell--12-col-print {
+        width: calc(100% - 16px) !important;
+    }
+
+    .site-no-print {
+        display: none !important;
+    }
+}
