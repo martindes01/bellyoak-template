@@ -1,0 +1,209 @@
+﻿/* Designed to work alongside Material Design Lite v1.3.0 */
+
+.des-button--outlined {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.des-chip__action--icon-only {
+    cursor: inherit;
+}
+
+.des-color--background {
+    background-color: #F1F3F4 !important;
+}
+
+.des-color--background-contrast {
+    background-color: #000000 !important;
+}
+
+.des-color--error {
+    background-color: #D50000 !important;
+}
+
+.des-color--error-contrast {
+    background-color: #FFFFFF !important;
+}
+
+.des-color--surface {
+    background-color: #FFFFFF !important;
+}
+
+.des-color--surface-contrast {
+    background-color: #000000 !important;
+}
+
+.des-color-text--background {
+    color: #F1F3F4 !important;
+}
+
+.des-color-text--background-contrast {
+    color: #000000 !important;
+}
+
+.des-color-text--error {
+    color: #D50000 !important;
+}
+
+.des-color-text--error-contrast {
+    color: #FFFFFF !important;
+}
+
+.des-color-text--surface {
+    color: #FFFFFF !important;
+}
+
+.des-color-text--surface-contrast {
+    color: #000000 !important;
+}
+
+.des-grid__header {
+    margin-bottom: 0 !important;
+    padding-bottom: 8px !important;
+}
+
+.des-layout--span {
+    width: 100%;
+}
+
+.des-margin--default {
+    margin: initial;
+}
+
+.des-margin--null {
+    margin: 0;
+}
+
+.des-margin-descendants--null * {
+    margin: 0;
+}
+
+.des-margin-descendants--default * {
+    margin: initial;
+}
+
+.des-opacity--active {
+    opacity: 0.87;
+}
+
+.des-opacity--disabled {
+    opacity: 0.38;
+}
+
+.des-opacity--inactive {
+    opacity: 0.6;
+}
+
+.des-opacity--opaque {
+    opacity: 1;
+}
+
+.des-opacity--transparent {
+    opacity: 0;
+}
+
+.des-padding--default {
+    padding: initial;
+}
+
+.des-padding--null {
+    padding: 0;
+}
+
+.des-padding-descendants--default * {
+    padding: initial;
+}
+
+.des-padding-descendants--null * {
+    padding: 0;
+}
+
+.des-typography--h1 {
+    font-size: 6rem !important;
+    font-weight: 300;
+    letter-spacing: 0.016rem !important;
+    text-transform: initial !important;
+}
+
+.des-typography--h2 {
+    font-size: 3.75rem !important;
+    font-weight: 300;
+    letter-spacing: 0.008rem !important;
+    text-transform: initial !important;
+}
+
+.des-typography--h3 {
+    font-size: 3rem !important;
+    font-weight: 400;
+    letter-spacing: 0 !important;
+    text-transform: initial !important;
+}
+
+.des-typography--h4 {
+    font-size: 2.125rem !important;
+    font-weight: 400;
+    letter-spacing: 0.007rem !important;
+    text-transform: initial !important;
+}
+
+.des-typography--h5 {
+    font-size: 1.5rem !important;
+    font-weight: 400;
+    letter-spacing: 0 !important;
+    text-transform: initial !important;
+}
+
+.des-typography--h6 {
+    font-size: 1.25rem !important;
+    font-weight: 500;
+    letter-spacing: 0.008rem !important;
+    text-transform: initial !important;
+}
+
+.des-typography--subtitle-1 {
+    font-size: 1rem !important;
+    font-weight: 400;
+    letter-spacing: 0.009rem !important;
+    text-transform: initial !important;
+}
+
+.des-typography--subtitle-2 {
+    font-size: 0.875rem !important;
+    font-weight: 500;
+    letter-spacing: 0.007rem !important;
+    text-transform: initial !important;
+}
+
+.des-typography--body-1 {
+    font-size: 1rem !important;
+    font-weight: 400;
+    letter-spacing: 0.031rem !important;
+    text-transform: initial !important;
+}
+
+.des-typography--body-2 {
+    font-size: 0.875rem !important;
+    font-weight: 400;
+    letter-spacing: 0.018rem !important;
+    text-transform: initial !important;
+}
+
+.des-typography--button {
+    font-size: 0.875rem !important;
+    font-weight: 500;
+    letter-spacing: 0.054rem !important;
+    text-transform: uppercase !important;
+}
+
+.des-typography--caption {
+    font-size: 0.75rem !important;
+    font-weight: 400;
+    letter-spacing: 0.033rem !important;
+    text-transform: initial !important;
+}
+
+.des-typography--overline {
+    font-size: 0.625rem !important;
+    font-weight: 400;
+    letter-spacing: 0.15rem !important;
+    text-transform: uppercase !important;
+}

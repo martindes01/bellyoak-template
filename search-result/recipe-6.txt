@@ -1,0 +1,20 @@
+<div class="mdl-cell mdl-cell--12-col mdl-grid mdl-list__item mdl-grid--no-spacing mdl-shadow--2dp des-color--surface site-card">
+    <!-- contained(2): 4c-phone, 8c-tablet, 12c-desktop -->
+    <header class="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-color--primary site-card__media" style="background-image: url(image/recipe-6.jpg);"></header> <!-- contained(3): 3c-phone, 6c-tablet, 9c-desktop -->
+    <div class="mdl-cell mdl-cell--3-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop">
+        <!-- contained(3): 3c-phone, 6c-tablet, 9c-desktop -->
+        <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
+            <span>Recipe 6</span>
+        </div>
+        <div class="mdl-card__supporting-text des-typography--body-2">
+            <span class="mdl-chip mdl-chip--contact des-color-text--surface-contrast">
+                <span class="mdl-chip__action material-icons des-chip__action--icon-only des-opacity--active">timer</span>
+                <span class="mdl-chip__text">&nbsp;40 m</span>
+            </span>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect site-button" disabled>Eat me</a>
+        </div>
+    </div>
+</div>
+<div class="mdl-cell mdl-cell--12-col mdl-grid"></div> <!-- contained(2): 4c-phone, 8c-tablet, 12c-desktop -->

@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+
+<html lang="en-gb" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <base href="" />
+    <title>Recipes - BellyOak</title>
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <!-- Manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- Styles (Reference) -->
+    <link rel="stylesheet" href="style/material.blue-pink.edited.min.css" /> <!-- Edited -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:500" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous" />
+    <!-- Styles (Custom) -->
+    <link rel="stylesheet" href="style/des.css" />
+    <link rel="stylesheet" href="style/brand.css" />
+    <link rel="stylesheet" href="style/site.css" />
+    <!-- Metadata -->
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta name="author" content="martindes01" />
+    <meta name="description" content="The &lsquo;home away from home&rsquo; of student grub" />
+    <meta name="keywords" content="" />
+    <meta name="msapplication-navbutton-color" content="#2196F3" /> <!-- Edge / Internet Explorer : Primary -->
+    <meta name="msapplication-TileColor" content="#2196F3" /> <!-- Windows : Primary -->
+    <meta name="theme-color" content="#2196F3" /> <!-- Chrome / Firefox / Opera : Primary -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Scripts (Reference) -->
+    <script defer type="text/javascript" src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <!-- Scripts (Custom) -->
+    <script defer type="text/javascript" src="script/recipes.js"></script>
+</head>
+<body>
+    <div class="mdl-layout mdl-layout--fixed-header mdl-js-layout">
+        <header class="mdl-layout__header mdl-layout__header--waterfall mdl-layout__header--waterfall-hide-top mdl-color--primary mdl-color-text--primary-contrast">
+            <div class="mdl-layout-icon"></div>
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout__title des-typography--h5 site-typography--title-font">BellyOak</span>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast site-button" href="index.html">Home</a>
+                    <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast site-button" href="#about">About</a>
+                    <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast site-button" href="#support-us">Support us</a>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer des-color--surface">
+            <span class="mdl-layout__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">BellyOak</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link des-color-text--surface-contrast des-opacity--opaque des-typography--body-1 site-typography--body-font" href="index.html">Home</a>
+                <a class="mdl-navigation__link des-color-text--surface-contrast des-opacity--opaque des-typography--body-1 site-typography--body-font" href="#about">About</a>
+                <a class="mdl-navigation__link des-color-text--surface-contrast des-opacity--opaque des-typography--body-1 site-typography--body-font" href="#support-us">Support us</a>
+            </nav>
+            <div class="mdl-navigation des-color-text--surface-contrast des-opacity--disabled des-typography--caption site-typography--body-font" id="dev" style="bottom: 0; position: absolute;">
+                <span>recipes.html - Commit 47</span>
+            </div>
+        </div>
+        <main class="mdl-layout__content des-color--background">
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--9-col mdl-list__item des-grid__header">
+                    <!-- 4c-phone, 8c-tablet, 9c-desktop -->
+                    <span class="mdl-list__item-primary-content mdl-typography--text-center">
+                        <span class="des-color-text--background-contrast des-layout--span des-opacity--active des-typography--h4 site-typography--title-font">Time to find some top&#8209;notch&nbsp;nosh</span>
+                    </span>
+                </div>
+            </div>
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop mdl-card mdl-shadow--2dp site-card site-cell--12-col-print">
+                    <!-- 4c-phone, 6c-tablet, 9c-desktop -->
+                    <div class="mdl-card__title">
+                        <span class="des-color-text--surface-contrast des-typography--h5 site-typography--title-font">Search or filter results</span>
+                    </div>
+                    <div class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content mdl-textfield mdl-textfield--floating-label mdl-js-textfield">
+                            <input class="mdl-textfield__input des-color-text--surface-contrast des-typography--body-1 site-typography--body-font" id="search-field" autofocus />
+                            <label class="mdl-textfield__label des-typography--subtitle-1 site-typography--body-font" for="search-field">Search by ingredients, keywords etc.</label>
+                        </span>
+                        <span class="mdl-list__item-secondary-content">
+                            <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-button--raised mdl-js-button mdl-js-ripple-effect" id="search-button" disabled>
+                                <i class="material-icons">search</i>
+                            </button>
+                            <span class="mdl-tooltip des-typography--body-2 site-tooltip site-typography--body-font" id="search-button-tooltip" for="search-button">Search</span>
+                        </span>
+                    </div>
+                    <div class="mdl-card__supporting-text des-typography--body-2">
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-chip des-color-text--surface-contrast des-typography--subtitle-1 site-js-filter-chip" data-filter-subject="tag" data-filter-value="vegetarian">
+                            <span class="mdl-chip__text">Vegetarian</span>
+                        </button>
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-chip des-color-text--surface-contrast des-typography--subtitle-1 site-js-filter-chip" data-filter-subject="tag" data-filter-value="vegan">
+                            <span class="mdl-chip__text">Vegan</span>
+                        </button>
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-chip mdl-chip--contact des-color-text--surface-contrast des-typography--subtitle-1 site-js-filter-chip" data-filter-subject="time" data-filter-value="30">
+                            <span class="mdl-chip__action material-icons des-opacity--active">timer</span>
+                            <span class="mdl-chip__text">&nbsp;30 m or less</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--hide-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-card site-card site-no-print">
+                    <!-- hide-phone, 2c-tablet, 3c-desktop -->
+                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
+                        <span>Advertisement</span>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop mdl-card mdl-grid mdl-grid--no-spacing mdl-shadow--2dp site-card site-cell--12-col-print hidden" id="error-container">
+                    <!-- 4c-phone, 6c-tablet, 9c-desktop -->
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <!-- contained(1): 4c-phone, 8c-tablet, 12c-desktop -->
+                        <div class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content mdl-typography--text-center">
+                                <span class="des-color-text--background-contrast des-layout--span des-opacity--active des-typography--h3 site-typography--title-font" id="error-emoji"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col mdl-grid hidden" id="error-4xx">
+                        <!-- contained(1): 4c-phone, 8c-tablet, 12c-desktop -->
+                        <div class="mdl-cell mdl-cell--12-col mdl-list__item-primary-content mdl-typography--text-center">
+                            <!-- contained(2): 4c-phone, 8c-tablet, 12c-desktop -->
+                            <span class="des-color-text--background-contrast des-typography--h6 site-typography--title-font">Error <span id="error-4xx-code"></span>: brain est overlooooaaaaad!!!!!!</span>
+                        </div>
+                        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+                            <!-- contained(2): 4c-phone, 8c-tablet, 6c-desktop -->
+                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h6 site-typography--title-font">
+                                <span>Things to try</span>
+                            </div>
+                            <div class="mdl-list__item">
+                                <span class="mdl-list__item-primary-content">
+                                    <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5 site-typography--title-font">&gt;</span>
+                                    <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">Check your network connection</span>
+                                </span>
+                            </div>
+                            <div class="mdl-list__item">
+                                <span class="mdl-list__item-primary-content">
+                                    <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5 site-typography--title-font">&gt;</span>
+                                    <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">Reload the page and try again</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+                            <!-- contained(2): 4c-phone, 8c-tablet, 6c-desktop -->
+                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h6 site-typography--title-font">
+                                <span>If that doesn't work</span>
+                            </div>
+                            <div class="mdl-list__item">
+                                <span class="mdl-list__item-primary-content">
+                                    <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5 site-typography--title-font">&gt;</span>
+                                    <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">Search for something else</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col mdl-grid hidden" id="error-no-result">
+                        <!-- contained(1): 4c-phone, 8c-tablet, 12c-desktop -->
+                        <div class="mdl-cell mdl-cell--12-col mdl-list__item-primary-content mdl-typography--text-center">
+                            <!-- contained(2): 4c-phone, 8c-tablet, 12c-desktop -->
+                            <span class="des-color-text--background-contrast des-typography--h6 site-typography--title-font">It seems your search doesn't exist in our fridge.</span>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col mdl-grid mdl-grid--no-spacing">
+                            <!-- contained(2): 4c-phone, 8c-tablet, 12c-desktop -->
+                            <div class="mdl-cell mdl-cell--12-col mdl-card__title des-color-text--surface-contrast des-typography--h6 site-typography--title-font">
+                                <!-- contained(3): 4c-phone, 8c-tablet, 12c-desktop -->
+                                <span>Things to try</span>
+                            </div>
+                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+                                <!-- contained(3): 4c-phone, 8c-tablet, 6c-desktop -->
+                                <div class="mdl-list__item">
+                                    <span class="mdl-list__item-primary-content">
+                                        <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5 site-typography--title-font">&gt;</span>
+                                        <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">Check your spelling</span>
+                                    </span>
+                                </div>
+                                <div class="mdl-list__item">
+                                    <span class="mdl-list__item-primary-content">
+                                        <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5 site-typography--title-font">&gt;</span>
+                                        <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">Use alternative keywords</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+                                <!-- contained(3): 4c-phone, 8c-tablet, 6c-desktop -->
+                                <div class="mdl-list__item">
+                                    <span class="mdl-list__item-primary-content">
+                                        <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5 site-typography--title-font">&gt;</span>
+                                        <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">Use more general keywords</span>
+                                    </span>
+                                </div>
+                                <div class="mdl-list__item">
+                                    <span class="mdl-list__item-primary-content">
+                                        <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5 site-typography--title-font">&gt;</span>
+                                        <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">Disable filters</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col mdl-grid hidden" id="error-other">
+                        <!-- contained(1): 4c-phone, 8c-tablet, 12c-desktop -->
+                        <div class="mdl-cell mdl-cell--12-col mdl-list__item-primary-content mdl-typography--text-center">
+                            <!-- contained(2): 4c-phone, 8c-tablet, 12c-desktop -->
+                            <span class="des-color-text--background-contrast des-typography--h6 site-typography--title-font">A Category 6 error has been detected.&nbsp; ABANDON SHIP!</span>
+                        </div>
+                        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+                            <!-- contained(2): 4c-phone, 8c-tablet, 6c-desktop -->
+                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h6 site-typography--title-font">
+                                <span>Things to try</span>
+                            </div>
+                            <div class="mdl-list__item">
+                                <span class="mdl-list__item-primary-content">
+                                    <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5 site-typography--title-font">&gt;</span>
+                                    <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">Bungee jumping</span>
+                                </span>
+                            </div>
+                            <div class="mdl-list__item">
+                                <span class="mdl-list__item-primary-content">
+                                    <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5 site-typography--title-font">&gt;</span>
+                                    <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">Halloumi fries</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+                            <!-- contained(2): 4c-phone, 8c-tablet, 6c-desktop -->
+                            <div class="mdl-card__title des-color-text--surface-contrast des-typography--h6 site-typography--title-font">
+                                <span>Alternatively</span>
+                            </div>
+                            <div class="mdl-list__item">
+                                <span class="mdl-list__item-primary-content">
+                                    <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5 site-typography--title-font">&gt;</span>
+                                    <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">Check your network connection</span>
+                                </span>
+                            </div>
+                            <div class="mdl-list__item">
+                                <span class="mdl-list__item-primary-content">
+                                    <span class="mdl-list__item-icon des-color-text--surface-contrast des-opacity--active des-typography--h5 site-typography--title-font">&gt;</span>
+                                    <span class="mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">Reload the page and try again</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop mdl-list__item site-cell--12-col-print" id="result-placeholder">
+                    <!-- 4c-phone, 6c-tablet, 9c-desktop -->
+                    <span class="mdl-list__item-primary-content mdl-typography--text-center">
+                        <span class="des-color-text--background-contrast des-layout--span des-opacity--active des-typography--h4 site-typography--title-font">Searching the <span class="mdl-typography--text-nowrap">Belly<span class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></span>ak</span> archives...</span>
+                    </span>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--6-col-tablet mdl-cell--9-col-desktop mdl-grid mdl-grid--no-spacing site-cell--12-col-print hidden" id="result-container">
+                    <!-- 4c-phone, 6c-tablet, 9c-desktop -->
+                    <div class="mdl-cell mdl-cell--12-col mdl-list__item des-grid__header">
+                        <!-- contained(1): 4c-phone, 8c-tablet, 12c-desktop -->
+                        <span class="mdl-list__item-primary-content">
+                            <span class="des-color-text--background-contrast des-typography--subtitle-1 site-typography--title-font site-js-result-index"></span>
+                        </span>
+                        <span class="mdl-list__item-secondary-content">
+                            <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-js-button mdl-js-ripple-effect site-js-previous-button" id="previous-button-1" disabled>
+                                <i class="material-icons">arrow_back</i>
+                            </button>
+                            <span class="mdl-tooltip des-typography--body-2 site-tooltip site-typography--body-font site-js-previous-button-tooltip" for="previous-button-1">Previous page</span>
+                        </span>
+                        <span class="mdl-list__item-secondary-content">
+                            <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-js-button mdl-js-ripple-effect site-js-next-button" id="next-button-1" disabled>
+                                <i class="material-icons">arrow_forward</i>
+                            </button>
+                            <span class="mdl-tooltip des-typography--body-2 site-tooltip site-typography--body-font site-js-next-button-tooltip" for="next-button-1">Next page</span>
+                        </span>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col mdl-grid mdl-grid--no-spacing" id="result-area"></div> <!-- contained(1): 4c-phone, 8c-tablet, 12c-desktop -->
+                    <div class="mdl-cell mdl-cell--12-col mdl-card site-card site-no-print">
+                        <!-- contained(1): 4c-phone, 8c-tablet, 12c-desktop -->
+                        <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
+                            <span>Advertisement</span>
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col mdl-list__item des-grid__header">
+                        <!-- contained(1): 4c-phone, 8c-tablet, 12c-desktop -->
+                        <span class="mdl-list__item-primary-content">
+                            <span class="des-color-text--background-contrast des-typography--subtitle-1 site-typography--title-font site-js-result-index"></span>
+                        </span>
+                        <span class="mdl-list__item-secondary-content">
+                            <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-js-button mdl-js-ripple-effect site-js-previous-button" id="previous-button-2" disabled>
+                                <i class="material-icons">arrow_back</i>
+                            </button>
+                            <span class="mdl-tooltip des-typography--body-2 site-tooltip site-typography--body-font site-js-previous-button-tooltip" for="previous-button-2">Previous page</span>
+                        </span>
+                        <span class="mdl-list__item-secondary-content">
+                            <button class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--icon mdl-js-button mdl-js-ripple-effect site-js-next-button" id="next-button-2" disabled>
+                                <i class="material-icons">arrow_forward</i>
+                            </button>
+                            <span class="mdl-tooltip des-typography--body-2 site-tooltip site-typography--body-font site-js-next-button-tooltip" for="next-button-2">Next page</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--2-col-tablet mdl-cell--3-col-desktop mdl-card site-card site-no-print">
+                    <!-- 4c-phone, 2c-tablet, 3c-desktop -->
+                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
+                        <span>Advertisement</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp site-card site-cell--6-col-print" id="about">
+                    <!-- 4c-phone, 4c-tablet, 4c-desktop -->
+                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
+                        <span>About</span>
+                    </div>
+                    <div class="mdl-card__supporting-text mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">
+                        <span>Supporting text.</span>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect site-button">Learn more</a>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--5-col-desktop mdl-card mdl-shadow--2dp site-card site-cell--6-col-print" id="support-us">
+                    <!-- 4c-phone, 4c-tablet, 5c-desktop -->
+                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--h5 site-typography--title-font">
+                        <span>Support us (plz)</span>
+                    </div>
+                    <div class="mdl-card__supporting-text mdl-typography--text-justify des-color-text--surface-contrast des-typography--body-1 site-typography--body-font">
+                        <span>Supporting text.</span>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <div class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <span class="mdl-list__item-icon mdl-cell--hide-tablet fab fa-kickstarter-k brand-color-text--kickstarter"></span>
+                                <span class="des-color-text--surface-contrast">
+                                    <span class="des-typography--h6 site-typography--title-font">Kickstarter</span>
+                                    <br />
+                                    <span class="des-typography--body-2 site-typography--body-font">Fund us on Kickstarter</span>
+                                </span>
+                            </span>
+                            <span class="mdl-list__item-secondary-content">
+                                <a class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect site-button brand-color--kickstarter" href="#">Fund</a>
+                            </span>
+                        </div>
+                        <div class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <span class="mdl-list__item-icon mdl-cell--hide-tablet fab fa-patreon brand-color-text--patreon"></span>
+                                <span class="des-color-text--surface-contrast">
+                                    <span class="des-typography--h6 site-typography--title-font">Patreon</span>
+                                    <br />
+                                    <span class="des-typography--body-2 site-typography--body-font">Become a patron</span>
+                                </span>
+                            </span>
+                            <span class="mdl-list__item-secondary-content">
+                                <a class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect site-button brand-color--patreon" href="#">Support</a>
+                            </span>
+                        </div>
+                        <div class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <span class="mdl-list__item-icon mdl-cell--hide-tablet fab fa-paypal brand-color-text--paypal"></span>
+                                <span class="des-color-text--surface-contrast">
+                                    <span class="des-typography--h6 site-typography--title-font">PayPal</span>
+                                    <br />
+                                    <span class="des-typography--body-2 site-typography--body-font">Donate through Paypal</span>
+                                </span>
+                            </span>
+                            <span class="mdl-list__item-secondary-content">
+                                <a class="mdl-list__item-secondary-action mdl-button mdl-button--colored mdl-button--raised mdl-js-button mdl-js-ripple-effect site-button brand-color--paypal" href="#">Donate</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--3-col-desktop mdl-card site-card site-no-print">
+                    <!-- 4c-phone, 8c-tablet, 3c-desktop -->
+                    <div class="mdl-card__title des-color-text--surface-contrast des-typography--overline site-typography--body-font">
+                        <span>Advertisement</span>
+                    </div>
+                </div>
+            </div>
+            <footer class="mdl-mega-footer mdl-color--accent mdl-color-text--accent-contrast">
+                <div class="mdl-mega-footer__bottom-section">
+                    <div class="mdl-logo mdl-color-text--accent-contrast des-typography--h6 site-typography--title-font">BellyOak</div>
+                    <ul class="mdl-mega-footer__link-list des-opacity--active">
+                        <li><a class="des-typography--subtitle-1 site-typography--body-font" href="#about">About</a></li>
+                        <li><a class="des-typography--subtitle-1 site-typography--body-font" href="#support-us">Support us</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

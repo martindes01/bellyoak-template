@@ -1,0 +1,101 @@
+﻿/* Designed to work alongside Material Design Lite v1.3.0 */
+
+.site-button {
+    border-radius: 4px !important;
+}
+
+.site-card {
+    border-radius: 8px !important;
+    min-height: 160px;
+}
+
+.site-card__media {
+    background-position: center center;
+    background-size: cover;
+}
+
+.site-card__media--recipe {
+    height: 128px;
+}
+
+.site-data-table {
+    white-space: initial !important;
+}
+
+.site-data-table td, .mdl-data-table th {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+}
+
+.site-data-table td:first-of-type, .mdl-data-table th:first-of-type {
+    padding-left: 16px !important;
+}
+
+.site-data-table td:last-of-type, .mdl-data-table th:last-of-type {
+    padding-right: 16px !important;
+}
+
+.site-data-table .mdl-checkbox .is-upgraded {
+    padding-left: initial !important;
+}
+
+.site-data-table .mdl-data-table__select {
+    padding-left: initial !important;
+}
+
+.site-tooltip {
+    border-radius: 4px !important;
+}
+
+.site-typography--body-font {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.site-typography--body-font-cascade * {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.site-typography--title-font {
+    font-family: "Quicksand", Arial, Helvetica, sans-serif !important;
+}
+
+.site-typography--title-font-cascade * {
+    font-family: "Quicksand", Arial, Helvetica, sans-serif !important;
+}
+
+@media (min-width: 480px) {
+    .site-snackbar {
+        border-radius: 8px !important;
+    }
+}
+
+@media print {
+    * {
+        min-height: max-content;
+        page-break-inside: avoid;
+    }
+
+    footer {
+        display: none;
+    }
+
+    main [class*=color], main [style*=background] {
+        -webkit-print-color-adjust: exact !important;
+    }
+
+    .mdl-snackbar {
+        display: none !important;
+    }
+
+    .site-cell--6-col-print {
+        width: calc(50% - 16px) !important;
+    }
+
+    .site-cell--12-col-print {
+        width: calc(100% - 16px) !important;
+    }
+
+    .site-no-print {
+        display: none !important;
+    }
+}
