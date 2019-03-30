@@ -14,6 +14,8 @@
     var Snackbar = document.querySelector(".mdl-js-snackbar");
 
     // Private variables - Values
+    var Quantity_ml_in_tbsp = 17.758;
+    var Quantity_ml_in_tsp = 5.919;
     var Servings = ServingsField.value;
 
     // Event listeners
@@ -51,17 +53,22 @@
                         var IngredientUnitPrefix = '';
                         if (IngredientQuantity < 1) {
                             IngredientQuantity *= 1000;
-                            IngredientUnitPrefix = 'm';
                             if (IngredientBasicUnit === 'l') {
-                                if (IngredientQuantity < 15) {
-                                    IngredientQuantity /= 5;
+                                if (IngredientQuantity < Quantity_ml_in_tbsp) {
+                                    IngredientQuantity /= Quantity_ml_in_tsp;
                                     IngredientBasicUnit = "tsp";
                                 } else if (IngredientQuantity < 100) {
-                                    IngredientQuantity /= 15;
+                                    IngredientQuantity /= Quantity_ml_in_tbsp;
                                     IngredientBasicUnit = "tbsp";
+                                } else {
+                                    IngredientUnitPrefix = 'm';
                                 }
+                            } else {
+                                IngredientUnitPrefix = 'm';
                             }
-                        } else if (IngredientQuantity >= 1000 && IngredientQuantity < 1000000) {
+                        } else if (IngredientQuantity < 1000) {
+                            IngredientUnitPrefix = '';
+                        } else if (IngredientQuantity < 1000000) {
                             IngredientQuantity /= 1000;
                             IngredientUnitPrefix = 'k';
                         } else if (IngredientQuantity < 1000000000) {
