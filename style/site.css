@@ -48,19 +48,19 @@
 }
 
 .site-typography--body-font {
-    font-family: Arial, Helvetica, sans-serif !important;
+    font-family: "Roboto", Helvetica, Arial, sans-serif !important;
 }
 
 .site-typography--body-font-cascade * {
-    font-family: Arial, Helvetica, sans-serif !important;
+    font-family: "Roboto", Helvetica, Arial, sans-serif !important;
 }
 
 .site-typography--title-font {
-    font-family: "Quicksand", Arial, Helvetica, sans-serif !important;
+    font-family: "Quicksand", Helvetica, Arial, sans-serif !important;
 }
 
 .site-typography--title-font-cascade * {
-    font-family: "Quicksand", Arial, Helvetica, sans-serif !important;
+    font-family: "Quicksand", Helvetica, Arial, sans-serif !important;
 }
 
 @media (min-width: 480px) {
